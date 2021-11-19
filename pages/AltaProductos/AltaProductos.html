@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Kiwi Productos</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="AltaProductos.css">
+    <link rel="stylesheet" href="mediaQAltaProd.css">
+</head>
+<body>
+    <div Class="Portada">
+        <div class="Card">
+            <div class="ImagenUsuario">
+                <img src="/Imagenes/InicioSesion_Copia3.png" alt="Inicio de Sesion">
+            </div>
+            <div class="CntNuevaCuenta">
+                <p>Alta de Producto:</p>
+                <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div-->
+                <form class= "FormProd" >
+                    <div class = "FormCuenta" action="">
+                        <div class="container-input">
+                            <label for="nomProd">Nombre:</label>
+                            <input id = "nomProd" class="CamposEntrada" type="nomProd" name="nomProd" placeholder="Ingrese el Nombre Producto">
+                        </div>
+                        <div class="container-input">
+                            <label for="price">Precio:  $</label>
+                            <input id= "price" class="CamposEntrada" type="number" name="price" placeholder="Ingrese el Precio">
+                        </div>
+                        <div class="container-input">
+                            <label for="photo">Imagen Prod.:</label>
+                            <input id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="Ingrese la Fot del Producto">
+                        </div>
+                        <div class="container-input">
+                            <label for="desc">Descripción:</label>
+                            <input id= "desc" class="CamposEntrada" type="text" name="desc" placeholder="Ingrese una Descripción Adicional">
+                        </div>
+                        <div class="DivBotonera">
+                            <div class= "BotonAlta" tabindex="-1">
+                                <!-- El href lo manejo por el javascript en el evento "onClick" del -->
+                                <a class ="AHref_submit" href="">
+                                    <button id="btnAlta" class="Submit" type="button" > <ins>A</ins>lta</button> 
+                                </a>
+                            </div>
+                            <div class= "BotonAlta" tabindex="-1">
+                                <a class ="AHref_submit" href="../Productos/Productos.html">
+                                    <button id="btnCancelar" class="Submit" type="button" ><ins>C</ins>ancelar</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+
+    <script src="./AltaProductos.js" > </script>
+</body>
+</html>

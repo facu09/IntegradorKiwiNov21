@@ -1,0 +1,146 @@
+/*********************************/
+/***      MEDIA QUERIES        ***/
+/* para Navegadores PC pantallas pequeñas o restauradas */
+@media (min-width: 769px) and (max-width: 1920px) {
+    /* Del NavBar */
+    /* header{
+        min-height: 65vh;
+    }    */
+    .logo{
+        width: 27%;
+    }
+    .ImagenLogo{
+         width: 80px; 
+    }
+    .ElementoNav {
+        font-size: 1.5rem;
+    }    
+    .ElementoNavUsuario{
+        font-size: 1.5rem;
+    } 
+    .ElementoNav:hover{
+        font-size: 1.5rem;
+    }
+    .ImagenCarritoNav{
+        height: 85px; }
+
+    /*Se vanca todo el responsive con el % de card*/
+    /*  porque esta bien hecho con % muchas de las coas */ 
+    .Card{
+        width: 80%;
+    }    
+    .CntNuevaCuenta p{
+        margin-top: 15px;
+        font-size:2.5em;
+    }
+    .portada {
+        margin-top: 2%;
+    }
+}
+
+/* para Tablets Ipads  van de 455 a 768px*/
+@media (min-width: 480px) and (max-width:768px) {
+    /* header{
+        min-height: 55vh;
+    }    */
+    .logo{
+        width: 20%;
+    }
+    .ImagenLogo{
+        width: 65px; 
+    }
+    .ARefLogo{
+    width: 90px; 
+    /*2021-06-21: pruebo de meter el logo mas adentrol*/
+    /*margin-left: 10%;*/
+    margin-left:  20%;
+    }
+    .ElementoNav {
+        font-size: 1.1rem;
+    }    
+    .ElementoNavUsuario{
+        font-size: 1.1rem;
+    }    
+    .ImagenCarritoNav{
+        height: 65px; }
+
+
+    .Card{
+        width: 87%;
+    }
+    /* el titulo del fomr */
+    .CntNuevaCuenta p{
+        margin-top: 10px;
+        font-size:2em;
+    }
+    .FormCuenta label {
+        font-size: 1.1em;
+    }
+    .CamposEntrada{
+       font-size: 1.05em;
+    }
+    /* para el espacioado de los campos*/
+    .container-input {
+        margin: 7% 0px;
+    }    
+    .portada {
+        margin-top: 1%;
+    }
+    
+}
+
+/* Para moviles */
+@media (min-width: 0px) and (max-width:480px) {
+    /* header{
+        min-height: 45vh;
+    }    */
+    .logo{
+        width: 15%;
+    }
+    .ImagenLogo{
+        width: 55px; 
+   }
+   .ARefLogo{
+    width: 90px; 
+    /*2021-06-21: pruebo de meter el logo mas adentrol*/
+    /*margin-left: 10%;*/
+    margin-left:  10%;
+   }
+    .ElementoNav {
+        font-size: 0.85rem;
+    }    
+    .ElementoNavUsuario{
+        font-size: 0.85rem;
+    }    
+
+    .ElementoNav:hover{
+        font-size: 0.90em;
+    }
+    .ImagenCarritoNav{
+        height: 45px; }
+
+    .portada {
+            margin-top: 1%;}
+
+    .Card{
+        width: 90%;
+    }
+    /* el titulo del fomr */
+    .CntNuevaCuenta p{
+        margin-top: 8px;
+        font-size:1.9em;
+    }
+    .FormCuenta label {
+        font-size: 1.04em;
+    }
+    .CamposEntrada{
+       font-size: 0.87em;
+    }
+    /* para el espacioado de los campos*/
+    .container-input {
+        margin: 7% 0px;
+    }    
+    .submit{
+      font-size: 1.26em;     
+    }
+ }

@@ -1,0 +1,71 @@
+/*********************************/
+/***      MEDIA QUERIES        ***/
+
+/* para Navegadores PC pantallas pequeñas o restauradas */
+@media (min-width: 769px) and (max-width: 1224px) {
+    .Portada{
+           margin-top: 4%;
+    }
+    .Card{
+        width: 50%;
+    }    
+    .CamposEntrada{
+        width: 99%;
+        height: 2.7em;
+        font-size: 1.3em;
+    }
+    .submit{
+       height: 2.8em;
+       font-size: 1.3em;     
+    }
+}
+
+/* para Tablets Ipads  van de 455 a 768px*/
+@media (min-width: 455px) and (max-width:768px) {
+    .Portada{
+        margin-top: 6%;
+    }
+    .Card{
+        width: 78%;
+    }
+    .CamposEntrada{
+        width: 99%;
+        height: 2.7em;
+        font-size: 1.2em;
+    }
+    .submit{
+       height: 2.7em;
+       font-size: 1.2em;     
+    }
+}
+
+/* Para moviles */
+@media (min-width: 0px) and (max-width:454px) {
+    .Portada{
+        margin-top: 10%;
+    }
+    .IniciarSesion p{
+        margin-bottom: 30px;
+        font-size:2.1em;
+    }
+    .Card{
+        width: 85%;
+    }
+    .CamposEntrada{
+        width: 95%;
+        height: 2.5em;
+        font-size: 1.1em;
+    }
+    .Etiquetas{
+        width: 90%;
+    }
+    .submit{
+       height: 2.5em;
+       font-size: 0.98em;     
+    }
+    .OlvidePass{
+        width: 85%;
+        height: 2.4em;
+        font-size: 1em; 
+    }
+ }

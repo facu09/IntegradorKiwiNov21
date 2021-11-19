@@ -1,0 +1,2 @@
+//Mensaje de Bienvenida.
+alert ("Bienvenido a 'Kiwi Tiendas' \n\n Usted podrá: \n 1- Registrarse. \n2- Iniciar sesiòn. \n3- Comprar (requerie inicio de sesiòn). \n4- Agregar productos nuevos a la tienda. \n5- La tienda conservará el carrito de compra actual para cada usuario mientras no cierren en navegador.");

@@ -1,0 +1,60 @@
+/*********************************/
+/***      MEDIA QUERIES        ***/
+
+/* para Navegadores PC pantallas pequeñas o restauradas */
+@media (min-width: 769px) and (max-width: 1224px) {
+    /*Se vanca todo el responsive con el % de card*/
+    /*  porque esta bien hecho con % muchas de las coas */ 
+    .Card{
+        width: 60%;
+    }    
+    .CntNuevaCuenta p{
+        font-size:2.5em;
+    }
+}
+
+/* para Tablets Ipads  van de 455 a 768px*/
+@media (min-width: 455px) and (max-width:768px) {
+    .Card{
+        width: 75%;
+    }
+    /* el titulo del fomr */
+    .CntNuevaCuenta p{
+        font-size:2em;
+    }
+    .FormCuenta label {
+        font-size: 1.1em;
+    }
+    .CamposEntrada{
+       font-size: 1.05em;
+    }
+    /* para el espacioado de los campos*/
+    .container-input {
+        margin: 7% 0px;
+    }    
+    
+}
+
+/* Para moviles */
+@media (min-width: 0px) and (max-width:454px) {
+    .Card{
+        width: 90%;
+    }
+    /* el titulo del fomr */
+    .CntNuevaCuenta p{
+        font-size:1.9em;
+    }
+    .FormCuenta label {
+        font-size: 1.04em;
+    }
+    .CamposEntrada{
+       font-size: 0.87em;
+    }
+    /* para el espacioado de los campos*/
+    .container-input {
+        margin: 7% 0px;
+    }    
+    .submit{
+      font-size: 1.26em;     
+    }
+ }

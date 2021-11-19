@@ -1,0 +1,408 @@
+
+// Ejercicios Iniciales de Java Scrip //
+// Ejercicio  01 (de 25) -------------------------------------------------------------------------------------------------------
+// Enunciado: //  1- Crear una variable "nombre" y asignarle un valor del tipo string. Luego imprime el valor en la consola.
+
+console.log ("---------- Ejercicio  01 (de 25) -----------");
+console.log ("Enunciado: Crear una variable nombre y asignarle un valor del tipo string. Luego imprime el valor en la consola.");
+
+let lsNombre = "Facundo Juan Manuel";
+
+console.log ("El nombre asignado a la variable 'nombre' es : " + lsNombre);
+
+console.log ("---------- FIN Ejercicio  01 (de 25) --------------------");
+
+
+// Ejercicio  02 (de 25) ------------------------------------------------------------------------------------------------------
+// Enunciado: // 2- Crear dos variables: una "nombre" y otra "apellido" y asignarle valores del tipo string. Crear una tercer variable que sea "nombre completo" (en camelCase) y asignarle un valor del tipo string que sea el resultado de concatenar los valores de las primeras dos variables. Imprimir resultado en la consola.
+ 
+console.log ("---------- Ejercicio  02 (de 25) -----------");
+console.log ("Enunciado: 2- Crear dos variables: una 'nombre y otra 'apellido' y asignarle valores del tipo string. Crear una tercer variable que sea nombre completo (en camelCase) y asignarle un valor del tipo string que sea el resultado de concatenar los valores de las primeras dos variables. Imprimir resultado en la consola.");
+ 
+let lsNombreEj2 = "Facundo Juan";
+let lsApelEj2 = "Cigliuti";
+let lsNomCompletoEj2 = lsNombreEj2 + " " + lsApelEj2;
+console.log ("El nomre completo del es: " + lsNomCompletoEj2 + ".");
+console.log ("---------- FIN Ejercicio  02 (de 25) --------------------");
+
+// Ejercicio  03 y 04 (de 25) -----------------------------------------------------------------------------------------------------
+// Enunciado: 3- . Crear una variable cualquiera y asignarle un valor del tipo string, imprimir en consola el valor en mayusculas.
+console.log ("---------- Ejercicio  03 (de 25) -----------");
+console.log ("Enunciado: 3- Crear una variable cualquiera y asignarle un valor del tipo string, imprimir en consola el valor en mayusculas.");
+ 
+let lsNombreEj3 = "Facundo Juan";
+console.log ("El nombre ingresado pasado a Mayúsculas es: " + lsNombreEj3.toUpperCase() );
+console.log ("---------- FIN Ejercicio  03 (de 25) ---------------------");
+
+console.log ("---------- Ejercicio  04 (de 25) -----------");
+console.log ("Ejercicio 04: mostrar en pantalla Longitud de variable Nombre: " +  lsNombreEj3 + " es de " + lsNombreEj3.length + " caracteres");
+console.log ("Moralej Ej 3 y 4 toUpperCase() es un metodo va con '()', leght es una propiedad va sin '()'");
+console.log ("---------- FIN Ejercicio  04 (de 25) -----------------------");
+
+
+console.log ("---------- Ejercicio  04 (de 25) -----------");
+console.log ("Ejercicio 04: mostrar en pantalla Longitud de variable Nombre: " +  lsNombreEj3 + " es de " + lsNombreEj3.length + " caracteres");
+console.log ("Moralej Ej 3 y 4 toUpperCase() es un metodo va con '()', leght es una propiedad va sin '()'");
+console.log ("---------- FIN Ejercicio  04 (de 25) -----------------------");
+
+// Ejercicio  5 (de 25) ---------------------------------------------------------------------------------------
+// Enunciado:  5. Crear un array llamado meses y que almacene el nombre de los doce meses del año. Mostrar por consola los doce meses, imprimiendo 1 a 1 (se puede usar cualquier método de arrays o bucles)
+console.log ("---------- Ejercicio  05 (de 25) -----------");
+
+let laMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Set", "Oct", "Nov", "Dic"];
+let liI = 0;
+console.log (laMeses);
+// Forma 1:
+// For (const lsNomMes in laMeses) {
+//    console.log ("El mes " + (liI+1) + " en posición " + lsNomMes + ", " + laMeses[liI]  );
+//    liI ++;
+// }
+// Forma 2:
+// laMeses.forEach((element, index)  => {
+//     //console.log ("El mes " + (liI+1) + " es " +  element );
+//     //console.log ("El mes " + (liI+1) + " en posición " + index + " es " + element );
+    
+//     liI ++;
+// });
+
+// Froma 3: Do whil
+liI = 0;
+while (liI <= 11) {
+    console.log ("El mes " + (liI+1) + " en posición " + liI + " es: '" + laMeses[liI] + "'");
+    liI ++
+}
+console.log ("---------- FIN Ejercicio  05 (de 25) -----------------------");
+
+
+
+
+// Ejercicio  17 (de 25) ---------------------------------------------------------------------------------------
+// Enunciado: 17. Crear una funcion que reciba dos parametros:
+//      Un parametro -> el array
+//      Otro parametro -> la posición en el array
+//  Y que me devuelva el valor en la posición dada del array
+//  Ejemplo:
+//  Si recibo un array [“Hola”, “Como”, “Estas”, “Pewito”]
+//  Y una posición 1
+//  Quiero que me devuelva la posición 1 de [“Hola”, “Como”, “Estas”, “Pewito”], o sea, “Como”.
+console.log ("---------- Ejercicio  17 (de 25) ----------------------------------");
+
+let aArrayEj17 = ["Hola", "Como", "Estas", "Pewito"];
+let laMeses17 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Set", "Oct", "Nov", "Dic"];
+
+function DevuelveElementoArraySegunPosicion (aArreglo, liPos) {
+    return aArreglo[liPos];  
+} 
+
+let liPosDevolver = 3  
+console.log ("La posición " + liPosDevolver + " del Arreglo es aArrayEj17: " + DevuelveElementoArraySegunPosicion(aArrayEj17, liPosDevolver ));
+liPosDevolver = 11
+console.log ("La posición " + liPosDevolver + " del Arreglo es laMeses17: " + DevuelveElementoArraySegunPosicion(laMeses17, liPosDevolver ));
+
+console.log ("============= FIN Ejercicio  17 (de 25) ====================================");
+
+
+
+// Ejercicio  17 (de 25) ---------------------------------------------------------------------------------------
+// Enunciado: 18. Ahora modificar la función anterior, y si se le pasa un número negativo o que sea mayor a la longitud 
+//          del array, me devuelva un texto que diga: "El array no contiene esa posición"
+console.log ("");
+console.log ("---------- Ejercicio  18 (de 25) ----------------------------------");
+
+let aArrayEj18 = ["Hola", "Como", "Estas", "Pewito"];
+let laMeses18 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Set", "Oct", "Nov", "Dic"];
+
+function DevuelveElementoArraySegunPosicionEj18 (aArreglo, liPos) {
+    if ((aArreglo.length <= liPos) || (liPos < 0)) {
+        return "El array no contiene esa posición.";
+    } else { 
+        return aArreglo[liPos];  
+    }
+} 
+
+liPosDevolver = 4  
+console.log ("La posición " + liPosDevolver + " del Arreglo es aArrayEj17: " + DevuelveElementoArraySegunPosicionEj18(aArrayEj18, liPosDevolver ));  // "El array no contiene esa posición.";
+liPosDevolver = -1  
+console.log ("La posición " + liPosDevolver + " del Arreglo es aArrayEj17: " + DevuelveElementoArraySegunPosicionEj18(aArrayEj18, liPosDevolver ));  // "El array no contiene esa posición.";
+
+liPosDevolver = 11
+console.log ("La posición " + liPosDevolver + " del Arreglo es laMeses17: " + DevuelveElementoArraySegunPosicionEj18(laMeses18, liPosDevolver ));
+
+console.log ("============= FIN Ejercicio  18 (de 25) ====================================");
+
+// =========================================================================================================================
+// Ejercicio  16 (de 25) ---------------------------------------------------------------------------------------
+// Enunciado: - Crear un array de películas
+// ok - Crear una función que agregue una película al array de películas
+// ok- La película deberá tener un ID y un Título
+// ok- Crear una función que evalúe antes de agregar que la película no fue ingresada previamente
+//  - Crear una función que ordene las películas por Título y por ID
+// ok- Crear una función que elimine una película por su ID.
+
+console.log ("");
+console.log ("---------- Ejercicio  16 (de 25) ----------------------------------");
+// Conocimientos de Arreglos requeridos:
+//  1) .splice()
+//       que hace:  1. modifica el array orginal
+//                  2. elimina elementos o agrega elmentos al array original s/ parametros
+//      .splice(indice, cuantosBorrar, queAgregar)
+//  2) .push:  agrega algo al final del array
+//  3) .filter: 
+//              Crea un nuevo array /!\
+//              Con todos los elementos del array que cumplan con una condición
+//              es como un every pero confirma un nuevo array 
+//              Podria server para excluir un elemento del array tambien y componer otro 
+//                   .filter(valor=> valor !== 3)   //quita del nuevo array al valor == 3
+//  4) .sort: repasar https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+            // Even if objects have properties of different data types, the sort() method can be used to sort the array.
+            // The solution is to write a compare function to compare the property values:
+            // Example
+            // cars.sort(function(a, b){return a.year - b.year});
+                // cars.sort(function(a, b){
+                //     let x = a.type.toLowerCase();
+                //     let y = b.type.toLowerCase();
+                //     if (x < y) {return -1;}
+                //     if (x > y) {return 1;}
+                //     return 0;
+                // });
+
+let laArregloDePelis = [
+    {id: 3, nombre: "Volver al Futuro I"},
+    {id: 2, nombre: "Volver al Futuro II"},
+    {id: 1, nombre: "E.T."},
+    {id: 4, nombre: "Spiderman"},
+    {id: 5, nombre: "Man in Black"},
+    {id: 6, nombre: "Alicia"},
+];
+
+function AgregaUnaPeliAlArreglo(paArrPelis, elemento) {
+    paArrPelis.push(elemento);
+}
+
+const AgregaUnaPeliAlArregloSoloPorTitulo = (poArrPelis, Titulo) => {
+    poArrPelis.push({
+        id: Math.floor(Math.random() * 1000),
+        nombre: Titulo, 
+    })
+}
+
+// AgregaUnaPeliAlArregloSoloPorTitulo (paArrPelis, Titulo) =>  {
+//     paArrPelis.push({
+//         // id: paArrPelis.length(),
+//         id: Math.random ,
+//         nombre: Titulo},);
+// }
+
+AgregaUnaPeliAlArregloSoloPorTitulo(laArregloDePelis, "Titan");
+
+console.log ("SE AGREGO 1 PELI NUEVA FUNCION")
+console.log (laArregloDePelis)
+
+console.log( laArregloDePelis[2]);
+console.log ("Peli de id: " + laArregloDePelis[2].id + ":--> " + laArregloDePelis[2].nombre) ;
+console.log (laArregloDePelis); //muestro el arreglo antes
+
+//Agrego 1 pelicula a la lista
+AgregaUnaPeliAlArreglo(laArregloDePelis, {id:7, nombre:"Matrix"});
+console.log (laArregloDePelis );
+//Agrego otra peli a la lista
+AgregaUnaPeliAlArreglo(laArregloDePelis, {id:8, nombre:"Matrix relouded"});
+console.log (laArregloDePelis);
+
+//Funcion que Valida Antes de Agregar que no exista
+function AgregaUnaPeliSinoExisteAlArreglo(paArrPelis, poPeliAgregar) {
+    // console.log ("El Elemento Ingresado a la Función para agregar es: id: " + poPeliAgregar.id + ", nombre: '" + poPeliAgregar.nombre + "'");
+    // console.log(paArrPelis.find(valor => valor.id === poPeliAgregar.id) );
+    // console.log (paArrPelis.find(valor => valor.nombre === poPeliAgregar.nombre) );
+
+    if ( (paArrPelis.find(valor => valor.id === poPeliAgregar.id)) == undefined && (paArrPelis.find(valor => valor.nombre === poPeliAgregar.nombre)) == undefined  ) {
+
+        console.log ("No Existe la Pelicula: '" + poPeliAgregar.id + ": " + poPeliAgregar.nombre +  "' , ni el Id '" + poPeliAgregar.id + " ni el título '" + poPeliAgregar.nombre + "', ==> se procederá a Agregar a la Lista!!"  );
+        paArrPelis.push({id: poPeliAgregar.id, nombre: poPeliAgregar.nombre});
+        console.log (laArregloDePelis); //muestro el arreglo antes
+    } else {
+        console.log ("Ya Existe la Pelicula '" + poPeliAgregar.id + ": " + poPeliAgregar.nombre +  "', ya sea el Id '" + poPeliAgregar.id + "' o el Título '" + poPeliAgregar.nombre + "', ==> NO se procederá a Agregar a la Lista!" );
+    };
+};
+
+function EliminaUnaPeliculaDeLaListaPorPosicion(paArrPelis, piPosicion) {
+    console.log("por aca");
+    
+    if ((paArrPelis.length <= piPosicion) || (piPosicion < 0)) {
+        console.log("El array no contiene esa posición. Eliminación cancelada.");
+    } else { 
+        console.log( "Se procederá a eliminar la Pelicula '" + paArrPelis[piPosicion].id + ": " + paArrPelis[piPosicion].nombre + "'" ) ;
+        // se borra la pelicula mencionada
+        paArrPelis.splice(piPosicion, 1);
+
+        // // tambien se podria hacer con .filter // ==> esto es para cuando quiero eliminar un elemento por Id
+        // laNuevoArray = paArrPelis.filter( valor => valor.id !== piIdBorrar)
+        // console.log("------ MUESTRO EL NUEVO ARRAY PERO SIN EL piIdBorrar")
+        // console.log (laNuevoArray)
+    }
+}
+
+function EliminaUnaPelicualDeLaListaPorId (paArrPelis, piIdPeli) {
+
+    //primero vamos a buscar si existe el id con some
+
+    const elIdExiste = paArrPelis.some((valor)  => valor.id === piIdPeli );
+
+    console.log ("EL ID EXISTE: ----> " + elIdExiste);
+
+    // otra forma
+    //con if   
+
+    if (elIdExiste) {
+        console.log ("La perlicula que se esta borrando es: "   )
+        
+        // aca se podria poner un alert  para decir si quiere borrar o no
+        // alert()
+
+        laNuevoArray = paArrPelis.filter( valor => valor.id !== piIdPeli);
+    }
+
+    // // devuleve una copia del Array
+    // laNuevoArray = paArrPelis.filter( valor => valor.id !== null);
+
+    console.log("------ MUESTRO EL NUEVO ARRAY PERO SIN EL piIdPeli")
+    console.log (laNuevoArray)
+}
+
+// LLAMO A LAS FUNCIONES
+
+AgregaUnaPeliSinoExisteAlArreglo (laArregloDePelis, {id:6, nombre:"Spiderman"});  // devuelve 2 peliculas que ya existen la 6: Alicia  y  4: Spiderman
+
+AgregaUnaPeliSinoExisteAlArreglo (laArregloDePelis, {id:9, nombre:"X-man"});  // devuelve undefined  x  2 
+
+// EliminaUnaPeliculaDeLaListaPorPosicion(laArregloDePelis, 3); // deberia borrar la peli de posicion  {id: 4, nombre: "Spiderman"},
+
+EliminaUnaPelicualDeLaListaPorId(laArregloDePelis, 4)
+
+console.log(laArregloDePelis);
+
+
+const ordenarPeliculasPorTitulo = () => {    // funcion con arrow function
+    laArregloDePelis.sort((a, b) => {    //sort con arrow function
+    if (a.nombre < b.nombre) {
+      return -1;
+    }
+    if (a.nombre > b.nombre) {
+      return 1;
+    }
+    return 0;
+  });
+};
+
+// otra forma sin la funcion padre como un arrow function
+    // y sin el sort como un arrow function too.
+function OrdenarPeliculasPorTituloDos () {
+    laArregloDePelis.sort(function(a, b) {
+        if (a.nombre < b.nombre) {
+          return -1;
+        }
+        if (a.nombre > b.nombre) {
+          return 1;
+        }
+        return 0;
+    });
+};
+
+
+// let laArregloDePelis = [
+//     {id: 3, nombre: "Volver al Futuro I"},
+//     {id: 2, nombre: "Volver al Futuro II"},
+//     {id: 1, nombre: "E.T."},
+//     {id: 4, nombre: "Spiderman"},
+//     {id: 5, nombre: "Man in Black"},
+//     {id: 6, nombre: "Alicia"},
+// ];
+
+//Veo en detalle la parte del ejercicio 16) la parte que ordena con el sort()
+//Intento de Hacer una funcion genérica para ordenar arreglos, tanto por cualquier campo y orden ascendente o descendete.
+
+function OrdenaArregloDeObjetosSegCampoYSegOrden(paArregloGenerico, psCampoOrd, pbAscendente) {
+//psCampoOrd: string, es el campo por el que se pretende
+//pbAscendente:  boolean, dice si ordea ascendente = true, o descendente = false 
+//Conservando el arreglo original
+//--------------------------------------------------------------------------------
+    //creo una copia nueva con un filter (precario pero funciona)
+    laArregPelisLocal = paArregloGenerico.filter(valor => valor.id != undefined);
+    //otra forma mas pro:
+    //  const laArregPelisLocal = [...paArregloGenerico]    
+    // console.log("He Generado una copia del Arreglo nueva: laArregPelisLocal y lo muestro abajo");
+    // console.log (laArregPelisLocal);
+  
+    // Ojo: los () del toUpperCase, xque sino no funca
+    
+    // console.log ("AHORA PASA A ORDENAR POR EL CAMPO QUE ME PASAN POR PARAMETRO: ------------")
+    
+    // deberia chequear primero si el campo pasado 'psCampoOrd' es parte del objeto de arreglos
+    console.log ("MUESTRO EL CAMPO '" + psCampoOrd + "' DEL 1ER ELMENTO: --> '" + laArregPelisLocal[0][psCampoOrd] + "'" )
+    //  laArregPelisLocal[0][psCampoOrd]  devuelve 'undefined' si el psCampoOrd no existe dentro de los campos posibles
+
+    // //Intercepto el Error en caso de que paso un psCampoOrd que no existe.
+    // if  (laArregPelisLocal[0][psCampoOrd] = undefined) {
+    //     console.log ("EL CAMPO '" + psCampoOrd + "' PASADO COMO PARAMETRO PARA ORDENAR NO EXISTE EN EL ARREGLO DE OBJETOS" )
+    //     return false  // salgo de la función devolviendo falso
+    // }
+
+
+    laArregPelisLocal.sort(function (a, b) {
+        // console.log ("El typeof es:" + typeof(a[psCampoOrd])  );
+        // Si el tipo de campo pasado No es 'number'
+        if ( typeof ( a[psCampoOrd]) != "number" ) {
+            
+            let x = a[psCampoOrd].toUpperCase();   //no andaba xque faltaban  los () del toUpperCase
+            let y = b[psCampoOrd].toUpperCase();
+            // console.log ("POASO POR EL SORT " + x + " " + y);
+            if (x < y) {
+                if (pbAscendente) {return -1;} else {return 1;}
+            }
+            if (x > y) {
+                if (pbAscendente) {return 1;} else {return -1;}
+            }
+            return 0;
+        }
+        else {  // si el tipo de campo pasado es 'number'
+            //console.log ("PASO POR EL TYPE ID NUMERO")
+            if (pbAscendente) {
+                return a[psCampoOrd] - b[psCampoOrd];
+            } 
+            else {
+                return b[psCampoOrd] - a[psCampoOrd]
+            }
+        }
+
+    } )
+    
+    console.log("Ahora ordeno la copia del Arreglo nueva el CAMPO PASADO por Parametro y el ORDEN pasado por partametro: laArregPelisLocal y lo muestro abajo: ");
+    // console.log (laArregPelisLocal);
+
+    return laArregPelisLocal ;
+}
+
+// OrdenaArregloDeObjetosSegCampoYSegOrden(laArregloDePelis, "id", false );
+// console.log ("LO MUESTRO CUATRO VECES =============================================")
+// console.log (OrdenaArregloDeObjetosSegCampoYSegOrden(laArregloDePelis, "id", true ))
+// console.log (OrdenaArregloDeObjetosSegCampoYSegOrden(laArregloDePelis, "id", false ))
+// console.log (OrdenaArregloDeObjetosSegCampoYSegOrden(laArregloDePelis, "nombre", true ))
+// console.log (OrdenaArregloDeObjetosSegCampoYSegOrden(laArregloDePelis, "nombre", false ))
+
+console.log ("============= FIN Ejercicio  18 (de 25) ====================================");
+
+
+
+
+// forma rapida para hacer una copia de un array
+console.log ("00000000000000000000000000000000000000000000000000000000000000000000")
+console.log ("00000000000000000000000000000000000000000000000000000000000000000000")
+
+unArr = [1,2,3,4,5];
+
+const otroArray = [...unArr]
+const otroArray2 = [...unArr, 6, 7, 8]
+
+console.log (unArr)
+console.log (otroArray)
+console.log (otroArray2)

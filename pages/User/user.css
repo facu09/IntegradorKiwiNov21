@@ -1,0 +1,190 @@
+* {
+    /* padding: 0px;
+    margin: 0px; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif , cursive;
+}
+
+body {
+    background-color: #0E0E0E;
+    background-color: rgb(93, 155, 60);
+    margin:0;
+    padding: 0;
+}
+
+.Portada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* pruebas de width y height*/
+    /* width: 100%;
+    height: 100%; */
+    margin-top: 4%;
+    /* pruebo color de fondo*/
+    /* background-color: red; */
+    /* opacity: 0.90; */
+}
+
+.Card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    /* saco el height para que tome hasta el final */
+    /* height: 60%; */ 
+    padding: 1% 2% 2% 2%;
+    /* border: solid;
+    border-color:gray; */
+    background-color: rgba(79, 84, 73, 0.5);
+    background-color: rgba(119, 83, 57, 0.5);
+    background-color: rgba(119, 83, 57, 0.9);
+    border-radius:20px;
+    /* color: green; */
+    box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
+}
+
+.ImagenUsuario{
+    margin: 0px
+}
+.ImagenUsuario img{
+    width: 70px;
+    height: 70px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+.CntNuevaCuenta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    margin-bottom: 20px;
+}
+.CntNuevaCuenta p{
+    margin-top: 0px;
+    margin-bottom: 30px;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    color:rgb(172, 174, 172);
+    color:rgb(192, 147, 158);
+    color:white;
+    /* la fuente */
+    font-size:2.5em;
+    font-weight: bold;
+}
+
+.FormCuenta{
+    width: 99%;
+    /* margin-top: 1.5em;
+    padding:  3% 5% 1% 5% ; */
+    /* font-size: 1em;  tamaño letra cajas texto */
+}
+
+.FormCuenta label {
+    /* font-family: 'Montserrat','Poppins', sans-serif; */
+    /* color de los lavels del FormCuenta */
+    color: rgb(172, 174, 172);
+    color: rgb(183, 213, 212);
+    color: white;
+    /* los labels delform */
+    font-size: 1.3em;
+}
+
+.CamposEntrada{
+    /* height: 1.1em; */
+    /* margin-top:1.1em;*/
+    /* arriba, derecha, abajo , izquierda */
+    padding: 1.1% 2.5% 0.6% 2.5%;
+    /* Esto de abajo es lo mismo a lo de arriba */ 
+    /* padding-top: 1.1%;
+    padding-right: 2.5%; 
+    padding-bottom: 0.6%;
+    padding-left: 2.5%; */
+    border-color:rgb(195, 194, 194);
+    border-radius: 0px;
+    font-size: 1.3em;
+    color:rgb(0, 0, 0)
+}
+.container-input label{
+    display: flex;
+    align-items: center;
+}
+.container-input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0px;
+ }
+.container-input input{
+    width: 75%;
+}
+
+input::placeholder {
+    /* color:rgb(175, 175, 175); */
+    color:rgb(107, 104, 104);
+    font-size: 0.9em;
+    font-style: italic;
+  }
+ 
+.CampoEntradaPass{
+    font-weight:bolder;
+}
+
+.DivBotonera{
+    display: flex;
+    flex-direction: row;
+    font-size:0.8em ;
+    /* font-weight: 500; no da bola aca */
+}
+
+.BotonAlta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:0px;
+    width: 100%;
+    font-weight:900px;
+    /* font-family: sans-serif;
+    border-style: hidden; */
+    /* border-color: grey; */
+    /* border-radius: 10px;
+    border:solid; */
+}
+
+.AHref_submit{
+    width: 67%;
+    height: 4em;
+    padding: 5% 7% 5% 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.submit{
+    /* como ahora hay un solo botón de volver le doy un 50% de ancho, antes con 2 botones le daba un 100% */
+    width: 50%;
+    /* height: 10vh;  manejo el ancho con el padding*/
+    padding: 5% 2% 5% 2%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.5em; 
+    font-weight: bold; 
+    /* font-weight:900 ; */
+    align-items: center;
+    border-radius: 60px;
+    color:rgb(88, 61, 42);  
+    color:rgb(51, 36, 25); 
+    border-color: rgb(153, 153, 153);
+    background-color: rgba(248, 255, 239, 0.5);
+    background-color: rgba(75, 193, 248, 0.87);
+    background-color: rgb(134, 170, 115);
+    /* border-style: hidden; */
+}
+.submit:hover{
+    cursor:pointer;
+    background-color: rgb(51, 80, 34);
+    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(169, 216, 144); */
+    color:white;
+}

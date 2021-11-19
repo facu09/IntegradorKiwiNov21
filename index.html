@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Tiene que estar primero el de bootstrap antes que mi index.css sino se rompe el mio -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="mediaQ.css">
+    <link rel="stylesheet" href="animaciones.css">
+    <link rel="stylesheet" href="./fontawesome/fontawesome-free-5.15.3-web/css/all.css">
+   
+    <title>Kiwi Helados</title>
+  
+</head>
+
+<body>
+    <header>
+        <div class="encabezado">
+            <div class="logo">
+                <a class="ARefLogo" href="#Inicio"><img class="ImagenLogo" src="/Imagenes/LogoKiwi.jpg" alt="LogoKiwi"></a>
+                <div class="LogoOpacidad"></div>
+            </div>
+            
+            <nav class="NavBar">
+                <ul class="ListaElementos">
+                    <li class="ElementoNav">
+                        <a href="#Inicio">Inicio</a>
+                    </li>
+                    <li class="ElementoNav">
+                        <a href="#QuienesSomos" class="LiQuienesSomos">Q</a>
+                    </li>
+                    <li class="ElementoNav"> 
+                        <!-- <a href="#Productos" class="LiProdcutos">Prod</a> -->
+                        <a href="./pages/Productos/Productos.html" class="LiProdcutos">Prod</a>
+                    </li>
+                    <li class="ElementoNav">
+                        <a href="#Pedidos" class="liPedidos">Ped</a>
+                    </li>
+                    <li class="ElementoNav"><a href="#Contacto">Contacto</a></li>
+                    <li class="ElementoNav" id="lblUsuario" font-size= "0.70em"></li>
+                    <!-- <li><a href="login.html">
+                      <button id="btnLogin" class="BtnLogin" >Login</button></a></li> -->
+                    <!-- El login lo paso a manejar por el evento click del boton dentro del javascript 'index.js' -->
+                    <li><button id="btnLogin" class="BtnLogin" >Login</button></li>
+                </ul>
+            </nav> 
+        </div>
+        <div class="Portada" id="Inicio">
+            <div class="portada-opacidad"></div>
+                <!-- <h1 class="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1> 
+                <h1 class="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1> -->
+        </div>
+    </header>
+
+    <main>
+        <section class="sect-history" id="QuienesSomos">
+            <div class="card-history">
+                <h2 class="TitleCard">Historia</h2>
+                <p class="history">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, cupiditate laborum placeat
+                provident nam in expedita sed qui quidem, corrupti corporis quis quas fuga accusamus nesciunt
+                voluptatum veritatis iusto eius Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam vero
+                quisquam ipsam perspiciatis. 
+                Consequuntur dignissimos perferendis reprehenderit corrupti consequatur, autem neque natus eum, optio eligendi saepe architecto eos, cupiditate incidunt! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt neque labore aperiam blanditiis rem quidem iusto fugiat repellendus sapiente ab distinctio esse reiciendis, deleniti ex velit ipsa perspiciatis voluptates veritatis!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptates quisquam est recusandae cum, odio beatae quod obcaecati, suscipit repudiandae error earum, atque blanditiis ipsa et delectus? Ipsum, ut beatae?
+                </p>
+                <div class="VerMasHist" >
+                  <p>leer mas... <br></br> </p> 
+               </div>
+              <!-- <p class="segundo-parrafo-history">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, at? Minus vel magnam asperiores,
+                  deserunt delectus maiores nulla reiciendis in autem, nemo recusandae reprehenderit molestiae quis
+                  eaque sit quae neque.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, at? Minus vel magnam asperiores,
+                  deserunt delectus maiores nulla reiciendis in autem, nemo recusandae reprehenderit molestiae quis
+                  eaque sit quae neque.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, at? Minus vel magnam asperiores,
+                  deserunt delectus maiores nulla reiciendis in autem, nemo recusandae reprehenderit molestiae quis
+                  eaque sit quae neque.
+              </p> -->
+            </div>
+        </section>
+       
+        <section class="SeccionProductos" id="Productos">
+            <div class="CardProductos">
+                <h2 class= "TitleCard">Nuestros Productos</h2>
+                
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="/Imagenes/Kiwi_ChocoHelado.jpg" class="d-block  ImgCarru Img1" alt="Bombon Chocolate">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/Imagenes/Kiwi_Torta1.jpg" class="d-block ImgCarru Img1" alt="Torata Helada Kiwi">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/Imagenes/Kiwi_bombon1.jpg" class="d-block ImgCarru Img3" alt="Torata Helada Kiwi">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/Imagenes/KiwiPromo1.jpg" class="d-block ImgCarru Img1" alt="Torata Helada Kiwi">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/Imagenes/Delivery1.jpg" class="d-block  ImgCarru Img2" alt="Delivery">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+       <section class="SeccionPedidos" id="Pedidos">
+            <div class="CardPedidos">
+                <h2 class= "TitleCard">Pedidos</h2>
+               
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="/Imagenes/Delivery2.jpg" class="d-block ImgCarru Img3" alt="delivery">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/Imagenes/Delivery3.jpg" class="d-block ImgCarru Img3" alt="delivery">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/Imagenes/Delivery1.jpg" class="d-block ImgCarru Img3" alt="Delivery">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                 </div>
+           
+            </div>
+       </section>
+      
+      <section class="SeccContacto" id="Contacto">
+        <div class="CardContacto">
+            <h2 class ="TitleCard">Contacto</h2>
+            <form class = "FormContacto" action="">
+                <div class="container-input">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" placeholder="Ingrese su nombre">
+                </div>
+                <div class="container-input">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" placeholder="Ingrese su email">
+                </div>
+                <div class="container-input">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea type="mensaje" placeholder="Ingrese su mensaje"></textarea>
+                </div>
+                <div class="container-btn">
+                    <button class ="BtnEnviar" tabindex="0" accesskey="E"><ins>E</ins>nviar</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+      <div class= "conteiner-linea1-footer">
+          <!-- <div class= "container-rosario">
+              <a href="https://www.rosario.gob.ar/web/" target="_blank">
+                  <img class="fab MuniRos" src="/imagenes/RosarioLogo.png" alt="Logo Municipalidad de Rosario" >
+              </a>
+          </div> -->
+
+          <div class="container-icons">
+              <a href="https://www.facebook.com/kiwihelado/" target="_blank">
+                  <i class="fab fa-facebook icon-facebook"></i></a>
+              <a href="https://twitter.com/kiwihelados" target="_blank">
+                  <i class="fab fa-twitter icon-twitter"></i></a>
+              <a href="https://www.instagram.com/kiwi.helados/" target="_blank">
+                  <i class="fab fa-instagram icon-instagram"></i></a>
+          </div>
+      </div>
+       <!-- segunda linea del footer -->
+      <!-- <div class="Contenedor-Version">ver 1.5</div> -->
+
+  </footer>
+  <footer2>
+       
+         <!-- segunda linea del footer -->
+        <div class="Contenedor-Version">ver 2.35</div>
+   </footer2>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>   
+
+    <script src="./index.js"></script>
+</body>
+</html>

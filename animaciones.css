@@ -1,0 +1,90 @@
+
+@keyframes ImgLogoMove {
+    10% {
+        /* width: 23.5%;  con % se deforma en movil*/
+        width: 90px; 
+        margin-left: 0%;
+        border-radius: 100%;
+    }
+    25%{
+        /* width: 23.5%; */
+        width: 90px;
+        margin-left: 10%;
+        border-radius: 100%;
+        transform: rotate(1turn);
+        /* background-color: gray; */
+    }
+    50% {
+        /* width: 30.5%;  se deforma en responsive*/
+        width: 110px;
+        margin-left: 91%;
+        border-radius: 100%;
+    }   
+    75%{
+        /* width: 27.5%; */
+        width: 110px;
+        margin-left: 75%;
+        border-radius: 100%;
+        /* background-color: white; */
+    }
+    100% {
+        /* width: 23.5%; */
+        width: 90px; 
+        /*2021-06-21: pruebo de meter el logo mas adentrol*/
+        /*margin-left: 10%;*/
+        margin-left: 45%;  
+        border-radius: 100%;
+    }
+}
+
+@keyframes ImgLogoMoveAlways {
+    10% {
+        width: 90px; 
+        margin-left: 0%;
+    }
+    25%{
+        width: 90px;
+        margin-left: 10%;
+        transform: rotate(1turn);
+    }
+    50% {
+        width: 130px;
+        margin-left: 70%;
+    }   
+    75%{
+        width: 110px;
+        margin-left: 75%;
+    }
+    100% {
+        width: 90px; 
+        /*2021-06-21: pruebo de meter el logo mas adentrol*/
+        /*margin-left: 10%;*/  
+        margin-left: 45%;
+    }
+}
+
+
+
+@keyframes AniPortadaOpacidad {
+    10% {
+        background-color: rgba(0, 0, 0,  0.60);
+        /* background-color: rgba(240, 228, 228, 0.5); */
+        /* border-radius: 100%; */
+    }
+    25%{
+        /* border-radius: 100%; */
+        background-color: rgba(0, 0, 0,  0.70);
+    }
+    50% {
+        /* border-radius: 100%; */
+        background-color: rgba(0, 0, 0,  0.10);
+    }   
+    75%{
+         /* border-radius: 100%; */
+         background-color: rgba(0, 0, 0,  0.35);
+    }
+    100% {
+         /* border-radius: 100%; */
+         background-color: rgba(0, 0, 0,  0.50);
+    }
+}

@@ -1,0 +1,57 @@
+
+<html>
+<head>
+    <title>Kiwi Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="mediaQLogin.css">
+</head>
+<body>
+    <div Class="Portada">
+        <div class="Card">
+            <div class="ImagenUsuario">
+                <!-- <img src="https://www.pngwing.com/es/free-png-zlrqq" alt="Inicio de Sesión"> -->
+                <!-- <img class= "ImgClass" src="https://img-premium.flaticon.com/png/512/61/61205.png?token=exp=1621347960~hmac=f480fc1636c9cc555ee64e8f3c7929a4"> -->
+                <img src="/Imagenes/InicioSesion_Copia3.png" alt="Inicio de Sesion">
+                <!-- <img src="https://images.app.goo.gl/Y4jzrjeyFQkwUxPY8" alt="Inicio de Sesion"> -->
+                <!-- <img src="https://lh3.googleusercontent.com/proxy/Xgjdp4Zp-2-ytkYkpm7sRcAVDcyFCa58z4zP9CbJHo1YhbBvc2JA8WgC7EtyQsKWp2viOl52q7-clIb8QsSZEjNLoZG9BPbbdOdyT9_o" alt="Inicio de Sesión"> -->
+            </div>
+            <div class="IniciarSesion">
+                <p>Iniciar Sesión</p>
+                <div class= "Etiquetas">
+                    <input class="CamposEntrada" type="email" placeholder="Email" id="email" ></label>
+                </div>
+                <div class= "Etiquetas">
+                    <input class="CamposEntrada CampoEntradaPass" type="password" name="Psw" placeholder="Password" id="password">
+                </div>
+                <div class= "Etiquetas" tabindex="-1">
+                    <!-- Saco el href, y lo manejo por javascript con el evento (addEventListener) -->
+                    <!-- <a class ="AHref_submit" href="" tabindex="-1"> -->
+                        <button id="submitLogin" class="Submit" type="button" > <ins>E</ins>ntrar</button>  
+                    <!-- </a> -->
+                </div>
+                <div class= "Etiquetas" tabindex="-1">
+                    <a class ="AHref_submit" href="../../index.html" tabindex="-1">  
+                        <button id="btnCrearCuenta" class="OlvidePass"> <ins>C</ins>ancelar</button>
+                    </a>
+                <div class= "Etiquetas" tabindex="-1">
+                    <!-- <a class ="AHref_submit" href="" tabindex="-1"> -->
+                        <button id="btnOlvidePass" class="OlvidePass"> <ins>O</ins>lvidé mi password</button>
+                    <!-- </a> -->
+                </div>
+                <div class= "Etiquetas" tabindex="-1">
+                    <!-- por cada '../'' subo un nivel de carpeta -->
+                    <a class ="AHref_submit" href="../Register/register.html" tabindex="-1">  
+                        <button id="btnCrearCuenta" class="OlvidePass"> C<ins>r</ins>ear una cuenta</button>
+                    </a> 
+                </div>
+            </div>    
+        </div>
+    </div>
+
+    <script src="./login.js"></script>
+</body>
+</html>

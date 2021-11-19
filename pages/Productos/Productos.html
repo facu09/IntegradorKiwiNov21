@@ -1,0 +1,185 @@
+<html>
+<head>
+    <title>Kiwi Helados</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="./mediaQProd.css">
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+            <div class="logo">
+                <a class="ARefLogo" href="#listProducts"><img class="ImagenLogo" src="/Imagenes/LogoKiwi.jpg" alt="LogoKiwi"></a>
+                <div class="LogoOpacidad"></div>
+            </div>
+            
+            <nav class="NavBar">
+                <ul class="ListaElementos">
+                    <li class="ElementoNav">
+                        <a href="../../index.html">Volver</a>
+                    </li>
+                    <li class="ElementoNav">
+                        <a href="../AltaProductos/AltaProductos.html">Alta Prod.</a>
+                    </li>
+                    <li class="ElementoNavUsuario" id="lblUsuario" ></li>
+                    <div class="ElementoNavPegados">
+                        <a href="#cartList">
+                            <li class= "ElementoNavPegados">
+                                <img class ="ImagenCarritoNav"  src="../../Imagenes/CarritoDeComprasBlanco.png" alt="Carrito">
+                            <li>
+                        </a>
+                        </li>
+                            <p class= "ElementoNavUsuario" id="cantUnidadesCarrito">(0 u -    $ 0 )</p>
+                        </li>
+                    </div>
+                    <!-- <li><a href="login.html">
+                      <button id="btnLogin" class="BtnLogin" >Login</button></a></li> -->
+                    <!-- El login lo paso a manejar por el evento click del boton dentro del javascript 'index.js' -->
+                    <!-- <li><button id="btnLogin" class="BtnLogin" >Login</button></li> -->
+                </ul>
+            </nav> 
+        </div>
+    </header>
+
+
+    <div Class="Portada">
+        <div class="Card">
+            <!-- <div class="ImagenUsuario">
+                <img src="/Imagenes/LogoAlternativo.jpg" alt="Kiwi Mercado">
+            </div> -->
+            <div class="CntNuevaCuenta">
+                <p>Productos Disponibles:</p>
+                <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div-->
+                <section class="listProducts" id="listProducts">
+                    <div class="principalWrapper">
+                        <!-- <h2>Acá va la lista de los Pédis</h2> -->
+                        <ul id='products-container'>
+                            <!-- <li>
+                                <div>
+                                    <img src="./assets/img/squirtle.png" alt="Squirtle">
+                                </div>
+                                <span>Limon Verde</span>
+                                <span class="Dsc">Descripción del Limón verde que puede que vaya en 2 lineas.</span>
+                                <span>758$</span>
+                                <button>Comprar</button>
+                            </li> -->
+                            <!-- <li>
+                                <div>
+                                    <img src="./assets/img/takara.png" alt="Balbasaur">
+                                </div>
+                                <span>El legendario <br> Articuno</span>
+                                <span>125$</span>
+                                <button>Comprar</button>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./assets/img/squirtle.png" alt="Squirtle">
+                                </div>
+                                <span>el coso de vamo a calmarno</span>
+                                <span>758$</span>
+                                <button>Comprar</button>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./assets/img/pinguino.png" alt="Pinguino">
+                                </div>
+                                <span>el pajaro caniggia</span>
+                                <span>912$</span>
+                                <button class="disabled">Comprar</button>
+                                <div class="outStock"><strong>sin stock. voló</strong></div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./assets/img/balbasaur.png" alt="Balbasaur">
+                                </div>
+                                <span>La tortuga <br> franlkin</span>
+                                <span>125$</span>
+                                <button>Comprar</button>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="./assets/img/pinguino.png" alt="Pinguino">
+                                </div>
+                                <span>el pajaro caniggia</span>
+                                <span>912$</span>
+                                <button class="disabled">Comprar</button>
+                                <div class="outStock"><strong>sin stock. voló</strong></div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="cartList" id="cartList">
+                    <div class="principalWrapper">
+                        <h2>Productos que están en el Carrito:</h2>
+                        <!-- <p>
+                            Estaría piola en el navbar, tipo sidebar se abra... <br>
+                            Pero como dicen las malas lenguas: "Mientras funcione"
+                        </p> -->
+                        <div class="cart-wrapper">
+                            <div id='cart-list'>
+                                
+                            </div>
+                                    <!-- Aca van a ir los renderizados -->
+
+                            <!-- Estos de abjo deberian estar comentados -->
+                             <!-- <div class="cart-item">
+                                <div class="cart-item-content">
+                                    <div class="item-img">
+                                        <img src="./assets/img/squirtle.png" alt="Squirtle">
+                                    </div>
+                                    <span>- Coso de vamo a calmarno</span>
+                                </div>
+                                <span>$758</span>
+                            </div> -->
+                            <!--<div class="cart-item">
+                                <div class="cart-item-content">
+                                    <div class="item-img">
+                                        <img src="./assets/img/squirtle.png" alt="Squirtle">
+                                    </div>
+                                    <span>- Coso de vamo a calmarno</span>
+                                </div>
+                                <span>$758</span>
+                            </div>
+                            <div class="cart-item">
+                                <div class="cart-item-content">
+                                    <div class="item-img">
+                                        <img src="./assets/img/balbasaur.png" alt="Balbasaur">
+                                    </div>
+                                    <span>- La Tortuga Franklin</span>
+                                </div>
+                                <span>$125</span>
+                            </div> -->
+                            <div class="total-items">
+                                <span>
+                                    <strong>Total:</strong> <b id='totalAmount'>$ 0</b>
+                                </span>
+                            </div>
+                            <button type="button" id='btnFinalizarCompra'>Finalizar compra</button>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                    <div class="DivBotonera">
+                        <div class= "BotonAlta">
+                            <a class ="AHref_submit" href="../../index.html"><button class="Submit" type="submit" > <ins>V</ins>olver</button></a>
+                        </div>
+                        <!-- <div class= "BotonAlta">
+                            <a class ="AHref_submit" href="../../index.html"><button class="Submit" type="submit" ><ins>C</ins>ancelar</button></a>
+                        </div> -->
+                    </div>
+                </div>
+            
+            </div>    
+        </div>
+    </div>
+
+    <script src="./Productos.js"></script>
+
+</body>
+</html>
