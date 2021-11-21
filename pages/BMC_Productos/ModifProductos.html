@@ -1,13 +1,12 @@
-
 <html>
 <head>
-    <title>Kiwi Registro</title>
+    <title>Kiwi Productos</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="mediaQRegister.css">
+    <link rel="stylesheet" href="ModifProductos.css">
+    <link rel="stylesheet" href="mediaQModifProd.css">
 </head>
 <body>
     <div Class="Portada">
@@ -16,33 +15,25 @@
                 <img src="../../Imagenes/InicioSesion_Copia3.png" alt="Inicio de Sesion">
             </div>
             <div class="CntNuevaCuenta">
-                <p>Alta nueva cuenta:</p>
+                <p>Modificación y Baja de Productos:</p>
                 <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div-->
-                <form >
+                <form class= "FormProd" >
                     <div class = "FormCuenta" action="">
                         <div class="container-input">
-                            <label for="email">Email:</label>
-                            <input id = "email" class="CamposEntrada" type="email" name="email" placeholder="Ingrese su email">
+                            <label for="nomProd">Nombre:</label>
+                            <input id = "nomProd" class="CamposEntrada" type="nomProd" name="nomProd" placeholder="Ingrese el Nombre Producto">
                         </div>
                         <div class="container-input">
-                            <label for="name">Nombre:</label>
-                            <input id= "name" class="CamposEntrada" type="text" name="name" placeholder="Ingrese su nombre">
+                            <label for="price">Precio:  $</label>
+                            <input id= "price" class="CamposEntrada" type="number" name="price" placeholder="Ingrese el Precio">
                         </div>
                         <div class="container-input">
-                            <label for="lastName">Apellido:</label>
-                            <input id= "lastName" class="CamposEntrada" type="text" name="lastName" placeholder="Ingrese su nombre">
+                            <label for="photo">Imagen Prod.:</label>
+                            <input id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="Ingrese la Fot del Producto">
                         </div>
                         <div class="container-input">
-                            <label for="nombre">Edad:</label>
-                            <input id= "age" class="CamposEntrada" type="text" name="age" placeholder="Ingrese su edad">
-                        </div>
-                        <div class= "container-input">
-                            <label for="Psw1">Password:</label>
-                            <input id="password1" class="CamposEntrada CampoEntradaPass" type="password" name="Psw1" placeholder="Password" >
-                        </div>
-                        <div class= "container-input">
-                            <label for="Psw1">Password:</label>
-                            <input id="password2" class="CamposEntrada CampoEntradaPass" type="password" name="Psw2" placeholder="Repit el Password" >
+                            <label for="desc">Descripción:</label>
+                            <input id= "desc" class="CamposEntrada" type="text" name="desc" placeholder="Ingrese una Descripción Adicional">
                         </div>
                         <div class="DivBotonera">
                             <div class= "BotonAlta" tabindex="-1">
@@ -52,7 +43,7 @@
                                 </a>
                             </div>
                             <div class= "BotonAlta" tabindex="-1">
-                                <a class ="AHref_submit" href="../Login/login.html">
+                                <a class ="AHref_submit" href="../Productos/Productos.html">
                                     <button id="btnCancelar" class="Submit" type="button" ><ins>C</ins>ancelar</button>
                                 </a>
                             </div>
@@ -63,6 +54,6 @@
         </div>
     </div>
 
-    <script src="./Register.js" > </script>
+    <script src="./ModifProductos.js" > </script>
 </body>
 </html>

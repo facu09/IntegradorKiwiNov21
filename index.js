@@ -31,7 +31,7 @@ const onClickLoginLogout = () => {
     //Si el estado del boton es 'Login'
     if (btnLogin.innerHTML === "Login") {
         //   alert ("Entro al Login ehhhh");
-        window.location.replace("../pages/Login/login.html")
+        window.location.replace("./pages/Login/login.html")
     } else {
         //Esta del botón --> 'Logout'
         //   alert ("Entro al logout");
@@ -46,7 +46,7 @@ const onClickLoginLogout = () => {
 //Evento Click en el 'lblUsuario'
 const onClickLblUsuario = () => {
     //  alert ("entro en el onClick del Lbl de Usuario.");
-    window.location.replace("../pages/User/User.html");
+    window.location.replace("./pages/User/User.html");  
 
 }
 
