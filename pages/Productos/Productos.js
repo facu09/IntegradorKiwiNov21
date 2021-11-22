@@ -49,7 +49,7 @@ try {
         // Recupero del BackEnd de 
         //'/products?limit=5&offset=0', {
         // const response = await fetch(`${baseURL}/products?limit=15&offset=6`, { // traigo los 15 primeros productos salteando los 6 primeros
-        const response = await fetch(`${baseURL}/products?limit=9&offset=0`, {   //traigo los 5 primeros productos
+        const response = await fetch(`${baseURL}/products?limit=9&offset=5`, {   //traigo los 5 primeros productos
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -283,11 +283,12 @@ btnFinalizarCompra.addEventListener('click', () => {
 
 
 
-// ARRANCA LA EJECUCIÓN
+// ARRANCA LA EJECUCIÓN ------------------------------------------------------
 // 1 Llamo al GetProductos
 getProductos();
 
 
+// 2 Evaluo si tengo carrito para el usuario activo ----------------------- 
 // alert ("longitu de myCart: " + myCart.length); 
 //Recupero el Carrito del usuario por si hubiese tenido alguno
 myCart1 = JSON.parse(localStorage.getItem("myCart" + lsEmailUsLogueado));
@@ -310,22 +311,6 @@ if (myCart) {
 } else {
     // alert ("el carrito arranca vacio ");
 };
-
-
-// //2- Si no tengo nada en el Carrito
-// if (myCart.lenght = 0 ) {
-//     //Me fijo si tengo algo iniciado en el carrito de antes en el localStorage
-//     if (JSON.parse(localStorage.getItem("myCart")).length > 0) {
-//         alert ("hay productos en el carrito!!!" +  );
-//         console.log("que donda");
-//         myCart = JSON.parse(localStorage.getItem("myCart"))
-        
-//         alert("la longitu del myCart es: " + myCart.length);     
-//         // renderCartProducts();
-//         // showTotalAmount();
-//     };
-// }
-
 
 //Fin de todo lo que se ejecuta -------------------------------------------------------------------------
 
