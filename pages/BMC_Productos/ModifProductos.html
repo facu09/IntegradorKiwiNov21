@@ -17,29 +17,38 @@
             <div class="CntNuevaCuenta">
                 <p>Modificación y Baja de Productos:</p>
                 <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div-->
-                <form class= "FormProd" >
+                <form class= "FormProd" method="POST">
                     <div class = "FormCuenta" action="">
                         <div class="container-input">
+                            <label for="id">Nombre:</label>
+                            <input id = "id" class="CamposEntrada" type="text" name="id" placeholder="Id de Producto." readonly = "readonly">
+                        </div>
+                        <div class="container-input">
                             <label for="nomProd">Nombre:</label>
-                            <input id = "nomProd" class="CamposEntrada" type="nomProd" name="nomProd" placeholder="Ingrese el Nombre Producto">
+                            <input id = "nomProd" class="CamposEntrada" type="text" name="nomProd" placeholder="Ingrese el Nombre Producto">
                         </div>
                         <div class="container-input">
                             <label for="price">Precio:  $</label>
-                            <input id= "price" class="CamposEntrada" type="number" name="price" placeholder="Ingrese el Precio">
+                            <input id= "price" class="CamposEntrada" type="number" name="price" placeholder="Ingrese el Precio" readonly= "readonly" >
                         </div>
+                        <!-- <div class="container-input">
+                            <label for="photo">Imagen Prod.:</label>
+                            <img src= id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="">
+                        </div> -->
                         <div class="container-input">
                             <label for="photo">Imagen Prod.:</label>
-                            <input id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="Ingrese la Fot del Producto">
+                            <input id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="Ingrese la Foto del Producto" readonly= "readonly">
                         </div>
                         <div class="container-input">
                             <label for="desc">Descripción:</label>
-                            <input id= "desc" class="CamposEntrada" type="text" name="desc" placeholder="Ingrese una Descripción Adicional">
+                            <input id= "desc" class="CamposEntrada" type="text" name="desc" placeholder="Ingrese una Descripción Adicional" readonly= "readonly" >
                         </div>
+                        <!-- Botonera de Modificar y Cancelar -->
                         <div class="DivBotonera">
                             <div class= "BotonAlta" tabindex="-1">
                                 <!-- El href lo manejo por el javascript en el evento "onClick" del -->
                                 <a class ="AHref_submit" href="">
-                                    <button id="btnAlta" class="Submit" type="button" > <ins>A</ins>lta</button> 
+                                    <button id="btnModificar" class="Submit" type="button" > <ins>M</ins>odificar</button> 
                                 </a>
                             </div>
                             <div class= "BotonAlta" tabindex="-1">
@@ -48,6 +57,30 @@
                                 </a>
                             </div>
                         </div>
+                        <!-- Botonero selector de registros -->
+                        <div class="DivBotonera">
+                            <div class= "BotonMovRegistros" tabindex="-1">
+                                <a class ="AHref_submit" href="">
+                                    <button id="btnPrimero" class="SubmitRegistros" type="button" >Primero</button> 
+                                </a>
+                            </div>
+                            <div class= "BotonMovRegistros" tabindex="-1">
+                                <a class ="AHref_submit" href="">
+                                    <button id="btnAnterior" class="SubmitRegistros" type="button" >Anterior</button> 
+                                </a>
+                            </div>
+                            <div class= "BotonMovRegistros" tabindex="-1">
+                                <div  class= "AHref_submit" >
+                                    <button id="btnSiguiente" class="SubmitRegistros" type="button" ><ins>S</ins>iguiente</button>
+                                </div>
+                            </div>
+                            <div class= "BotonMovRegistros" tabindex="-1">
+                                <a class ="AHref_submit" href="">
+                                    <button id="btnUltimo" class="SubmitRegistros" type="button" >Úlitmo</button> 
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>    

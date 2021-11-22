@@ -156,6 +156,20 @@ input::placeholder {
     border:solid; */
 }
 
+.BotonMovRegistros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:0px;
+    width: 80%;
+    font-weight:300px;
+    /* font-family: sans-serif;
+    border-style: hidden; */
+    /* border-color: grey; */
+    /* border-radius: 10px;
+    border:solid; */
+}
+
 .AHref_submit{
     width: 67%;
     height: 4em;
@@ -178,15 +192,37 @@ input::placeholder {
     /* font-weight:900 ; */
     align-items: center;
     border-radius: 60px;
-    color:rgb(88, 61, 42);  
     color:rgb(51, 36, 25); 
     border-color: rgb(153, 153, 153);
-    background-color: rgba(248, 255, 239, 0.5);
     background-color: rgba(75, 193, 248, 0.87);
     background-color: rgb(134, 170, 115);
     /* border-style: hidden; */
 }
 .submit:hover{
+    cursor:pointer;
+    background-color: rgb(51, 80, 34);
+    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(169, 216, 144); */
+    color:white;
+}
+
+.SubmitRegistros{
+    width: 80%;
+    /* height: 10vh;  manejo el ancho con el padding*/
+    padding: 2% 0% 2% 0%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.2em; 
+    /* font-weight: bold;  */
+    /* font-weight:900 ; */
+    align-items: center;
+    border-radius: 60px;
+    color:rgb(51, 36, 25); 
+    border-color: rgb(153, 153, 153);
+    background-color: rgb(134, 170, 115);
+    /* border-style: hidden; */
+}
+.SubmitRegistros:hover{
     cursor:pointer;
     background-color: rgb(51, 80, 34);
     background-color: rgb(77, 128, 49);

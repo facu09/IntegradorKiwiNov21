@@ -1,21 +1,29 @@
 // alert ("Entrando al js de ModifProductos.js");
 
 //Definicioes y vinculos a elementos del DOM
+const inpId = document.getElementById('id');
 const inpNomProd = document.getElementById('nomProd');
 const inpPrice = document.getElementById('price');
 const inpPhoto = document.getElementById('photo');
 const inpDesc = document.getElementById('desc');
-const btnAlta = document.getElementById('btnAlta');
+const btnModificar = document.getElementById('btnModificar');
 const btnCancelar = document.getElementById('btnCancelar');
+const btnPrimero = document.getElementById('btnPrimero');
+const btnAnterior = document.getElementById('btnAnterior');
+const btnSiguiente = document.getElementById('btnSiguiente');
+const btnUltimo = document.getElementById('btnUltimo');
+
 
 const baseURL = 'https://back-sandbox.herokuapp.com/api';
 
 const token = localStorage.getItem("token");    //recupero el token: Si esta logueado el usuario --> va a estar guardado en el localStorage
 
-//     alert (token);
+    // alert (token);
 
 let arrayProductos = [];   //arreglo de los productos que viene del Backend de Juli, lo defino acá para tenerlos
-const liPosActualProd = 0;  //indica la posición actual del producto
+let liPosActualProd = 1;  //indica la posición actual del producto
+
+
 
 //hasta aca ya tenemos agarrados los input
 
@@ -71,11 +79,25 @@ const pasaValidacionesAlta = () => {
 }
 
 LimpiaForm = () => {
+    inpId.value = "";
     inpNomProd.value = "";
     inpPrice.value = "";
     inpPhoto.value = "";
     inpDesc.value = "";
     inpNomProd.focus();
+}
+
+const renderProductoPosActual = (arrayProductos) => {
+    if (arrayProductos) {
+        inpId.value = arrayProductos[liPosActualProd].id;
+        inpNomProd.value = arrayProductos[liPosActualProd].name;
+        inpPrice.value = arrayProductos[liPosActualProd].price;
+        //foto
+        // inpPhoto.value = arrayProductos[liPosActualProd].photo.files[0];
+        inpDesc.value = arrayProductos[liPosActualProd].description;
+    } else {
+        
+    }
 }
 
 // hago un Get de Productos del BackEnd
@@ -95,7 +117,7 @@ try {
         // Recupero del BackEnd de 
         //'/products?limit=5&offset=0', {
         // const response = await fetch(`${baseURL}/products?limit=15&offset=6`, { // traigo los 15 primeros productos salteando los 6 primeros
-        const response = await fetch(`${baseURL}/products?limit=9&offset=0`, {   //traigo los 5 primeros productos
+        const response = await fetch(`${baseURL}/products?limit=9&offset=5`, {   //traigo los 5 primeros productos
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -107,11 +129,11 @@ try {
         arrayProductos = json.data.data
         console.log (arrayProductos)
 
-        //  alert("Termino el fetch");
+        //    alert("Termino el fetch");
+        //    alert("Ya tengo los productos en el arreglo");
 
         //Va a Rendierizar los productos en el DOM
-        // renderProductos(arrayProductos);
-        alert("Ya tengo los productos en el arreglo");
+        renderProductoPosActual(arrayProductos);
 
         }
     } catch( error ) {
@@ -120,12 +142,145 @@ try {
 }
 
 
+// renderProductoPosActual(liPosActualProd)
 
+const onClickSiguiente = (event) => {
+    event.preventDefault();    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
+    console.log ('paso por el onclickSiguiente');
+    // alert ('paso por el onclickSiguiente');
+    liPosActualProd ++
+    if (liPosActualProd < arrayProductos.length) {
+        renderProductoPosActual(arrayProductos)
+    } else {
+        liPosActualProd--
+        alert ('¡¡Llego al último registro!!')
+    }
+}
+
+const onClickAnterior = (e) => {
+    e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
+    //      alert ('paso por el onClickAnterior');
+    liPosActualProd --
+    if (liPosActualProd < arrayProductos.length && liPosActualProd >= 0) {
+        renderProductoPosActual(arrayProductos)
+    } else {
+        liPosActualProd++
+        alert ('¡¡Llego al primer registro!!')
+    }
+}
+
+const onClickPrimero = (e) => {
+    e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
+    //   alert ('paso por el onClicPrimero');
+    liPosActualProd = 0;
+    if (liPosActualProd < arrayProductos.length) {
+        renderProductoPosActual(arrayProductos)
+    } else {
+        alert ('¡¡No hay registros!!');
+    }
+}
+
+const onClickUltimo = (e) => {
+    e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
+    //   alert ('paso por el onClickUltimo');
+    liPosActualProd = arrayProductos.length - 1;
+    if (liPosActualProd < arrayProductos.length) {
+        renderProductoPosActual(arrayProductos)
+    } else {
+        alert ('¡¡No hay registros!!');
+    }
+}
+
+const GuardoProducto = async (e) => {
+    try {
+        //    alert("Entro al getProducts");
+        //Sino tiene token
+        if (!token || token === "undefined") {
+            //voy a la ventana de Loguin
+            alert ("¡¡No hay usuario Logueado!! \n\n Para utilizar esta Sección deberá Iniciar Seción.")
+            //Vuelvo al Login para que se loguee
+            window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
+        } else {
+            if (pasaValidacionesAlta()) {
+                //  alert("Entro al insert del backend de juli");
+                const payload =  {
+                    name: inpNomProd.value,                 
+                    price: inpPrice.value,
+                    // photo: "acá iria la foto en base 64.",
+                    // photo: await toBase64(),
+                    description: inpDesc.value,
+                    //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
+                }
+                console.log("payload: ", payload);
+                //  alert (payload);
+
+                //Voy a Dar de Alta al BackEnd 1 Usuario nuevo
+                const response = await fetch(baseURL + '/products/' + inpId.value , {
+                    method:'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+                const json = await response.json();
+                console.log(json);
+                const {message} = json
+                
+                //  alert ("Message retornado del BackEnd despues del alta: " + message + ".");
+    
+                if (message === "Successfully updated") {
+                    alert ("¡¡ Modificación del Producto '" + inpNomProd.value + "' realizado con ÉXITO !!" );
+                    // LimpiaForm();
+                } else {
+                    alert ("¡¡ Modificación del Producto NO REALIZADA para el Producto '" + inpNomProd.value + "' !!  \n\n Motivo: \n\n" + message);
+                    inpNomProd.focus()
+                    e.preventDefault()
+                    return
+                }
+                //deberia preguntar si fue ok y mostrar mensaje 
+    
+            }}
+        } catch( error ) {
+            alert(error);
+        }
+
+}
+
+const onClickModificar = (e) => {
+    e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
+    if (btnModificar.innerHTML = "Modificar" ) { 
+        //   alert ('Entro al Modificar ');
+        inpNomProd.focus();
+        btnModificar.innerHTML = "Guardar";
+        // inpNomProd.readonly = false;
+    } else {
+        if (inpId.value) {
+            //Boton Guarar
+            GuardoProducto()
+        }
+        
+    }   
+}
+
+const onClickCancelar = (e) => {
+    e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
+    //   alert ('paso por el onClickUltimo');
+    // inpNomProd.readonly = ""
+}
+
+
+btnSiguiente.addEventListener('click', onClickSiguiente );
+btnAnterior.addEventListener('click', onClickAnterior);
+btnPrimero.addEventListener('click', onClickPrimero);
+btnUltimo.addEventListener('click', onClickUltimo);
+
+btnModificar.addEventListener('click', onClickModificar);
+btnCancelar.addEventListener('click', onClickCancelar);
+
+
+
+//Empieza a Ejecutar ------------------------------------------------------------
 //Obtengo todos los productos de Backend de Juli
 getProductos();
 console.log (arrayProductos);
-
-renderUnProduct(liPosActualProd)
-
-//Productos creados para probar
-// Prod: 99
