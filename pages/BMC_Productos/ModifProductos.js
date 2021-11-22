@@ -3,7 +3,7 @@
 //Definicioes y vinculos a elementos del DOM
 const inpId = document.getElementById('id');
 const inpNomProd = document.getElementById('nomProd');
-const inpPrice = document.getElementById('price');
+var inpPrice = document.getElementById('price');
 const inpPhoto = document.getElementById('photo');
 const inpDesc = document.getElementById('desc');
 const btnModificar = document.getElementById('btnModificar');
@@ -21,7 +21,7 @@ const token = localStorage.getItem("token");    //recupero el token: Si esta log
     // alert (token);
 
 let arrayProductos = [];   //arreglo de los productos que viene del Backend de Juli, lo defino acá para tenerlos
-let liPosActualProd = 1;  //indica la posición actual del producto
+let liPosActualProd = 0;  //indica la posición actual del producto
 
 
 
@@ -141,6 +141,72 @@ try {
     }
 }
 
+const GuardoProducto = async (e) => {
+    try {
+           //      alert("Entro al GuardoProducto");
+        //Sino tiene token
+        if (!token || token === "undefined") {
+            //voy a la ventana de Loguin
+            alert ("¡¡No hay usuario Logueado!! \n\n Para utilizar esta Sección deberá Iniciar Seción.")
+            //Vuelvo al Login para que se loguee
+            window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
+        } else {
+            //Si tiene token --> Guardo
+            if (pasaValidacionesAlta()) {
+                 //      alert("Entro al update del backend de juli");
+                const payload =  {
+                    name: inpNomProd.value,                 
+                    price: inpPrice.value,
+                    // photo: "acá iria la foto en base 64.",
+                    // photo: await toBase64(),
+                    description: inpDesc.value,
+                    //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
+                }
+                console.log("payload: ", payload);
+                //  alert (payload);
+
+                //Voy a Dar de Alta al BackEnd 1 Usuario nuevo
+                const response = await fetch(baseURL + '/products/' + inpId.value , {
+                    method:'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+                const json = await response.json();
+                //      alert ("recupero el json --> abajo");
+                console.log(json);
+                const {message} = json
+                //      alert ("Va a mostrar mesaje devolvio back",  message);
+                //      alert ("Message retornado del BackEnd despues del alta: " + message + ".");
+    
+                if (message === "Successfully updated") {
+                    alert ("¡¡ Modificación del Producto '" + inpNomProd.value + "' realizado con ÉXITO !!" );
+                    // Actulizo el Arreglo con el registro reción modificado;
+                    arrayProductos[liPosActualProd].name = inpNomProd.value;
+                    arrayProductos[liPosActualProd].price = inpPrice.value;
+                    arrayProductos[liPosActualProd].description = inpDesc.value;
+                     //Si guardo bien el update --> cambio el botón a Modificar y lockeo el registro
+                    btnModificar.innerHTML = "Modificar";
+                    btnModificar.value = "Modificar"
+                     // inpDesc.price. ("readonly","false");
+                    inpNomProd.disabled = true;   inpPrice.disabled = true;   inpPhoto.disabled = true
+                    inpPhoto.disabled = true;     inpDesc.disabled = true;
+                    
+                    return true
+                } else {
+                    alert ("¡¡ Modificación del Producto NO REALIZADA para el Producto '" + inpNomProd.value + "' !!  \n\n Motivo: \n\n" + message);
+                    inpNomProd.focus()
+                    e.preventDefault()
+                    
+                    return false
+                }
+            }}
+        } catch( error ) {
+            alert(error);
+        }
+}
 
 // renderProductoPosActual(liPosActualProd)
 
@@ -191,75 +257,35 @@ const onClickUltimo = (e) => {
     }
 }
 
-const GuardoProducto = async (e) => {
-    try {
-        //    alert("Entro al getProducts");
-        //Sino tiene token
-        if (!token || token === "undefined") {
-            //voy a la ventana de Loguin
-            alert ("¡¡No hay usuario Logueado!! \n\n Para utilizar esta Sección deberá Iniciar Seción.")
-            //Vuelvo al Login para que se loguee
-            window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
-        } else {
-            if (pasaValidacionesAlta()) {
-                //  alert("Entro al insert del backend de juli");
-                const payload =  {
-                    name: inpNomProd.value,                 
-                    price: inpPrice.value,
-                    // photo: "acá iria la foto en base 64.",
-                    // photo: await toBase64(),
-                    description: inpDesc.value,
-                    //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
-                }
-                console.log("payload: ", payload);
-                //  alert (payload);
-
-                //Voy a Dar de Alta al BackEnd 1 Usuario nuevo
-                const response = await fetch(baseURL + '/products/' + inpId.value , {
-                    method:'PUT',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-                const json = await response.json();
-                console.log(json);
-                const {message} = json
-                
-                //  alert ("Message retornado del BackEnd despues del alta: " + message + ".");
-    
-                if (message === "Successfully updated") {
-                    alert ("¡¡ Modificación del Producto '" + inpNomProd.value + "' realizado con ÉXITO !!" );
-                    // LimpiaForm();
-                } else {
-                    alert ("¡¡ Modificación del Producto NO REALIZADA para el Producto '" + inpNomProd.value + "' !!  \n\n Motivo: \n\n" + message);
-                    inpNomProd.focus()
-                    e.preventDefault()
-                    return
-                }
-                //deberia preguntar si fue ok y mostrar mensaje 
-    
-            }}
-        } catch( error ) {
-            alert(error);
-        }
-
-}
-
 const onClickModificar = (e) => {
     e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
-    if (btnModificar.innerHTML = "Modificar" ) { 
-        //   alert ('Entro al Modificar ');
+    //      alert("entro al onClickModificar");
+    // Si el Boton esta para Modificar
+    if (btnModificar.value === "Modificar" ) { 
+        //      alert ('Entro a ponerle al boton Guardar y dejar editar los campos');
+        //voy por acá me gustariapoder bloquear y desbloquear los inputs con el javascript
+        // inpDesc.price. ("readonly","false");
+        inpNomProd.disabled = false;   inpPrice.disabled = false;   inpPhoto.disabled = false
+        inpPhoto.disabled = false;     inpDesc.disabled = false;
+
+    
         inpNomProd.focus();
         btnModificar.innerHTML = "Guardar";
+        btnModificar.value = "Guardar"
         // inpNomProd.readonly = false;
     } else {
+        // Si el Boton esta para Guardar
+        //      alert ("salio del else: si tiene id va a ir a guardar");
         if (inpId.value) {
-            //Boton Guarar
-            GuardoProducto()
+            //Voy a Guardar el registro al backend
+            //      alert ("va a ir al guardar");
+            if (GuardoProducto()) {
+                //Si guardo bien el update --> cambio el botón a Modificar y lockeo el registro
+                // lo hago mensaje y actualice estado en el GuardarProducto
+            } else {
+                //no hago nada
+            };
         }
-        
     }   
 }
 
@@ -267,6 +293,18 @@ const onClickCancelar = (e) => {
     e.preventDefault()    // para que no recarguela pagina   es para los botones submit   e????   es el evento   event      
     //   alert ('paso por el onClickUltimo');
     // inpNomProd.readonly = ""
+    //      alert ("value del boton cancelar: " + btnModificar.value );
+    if (btnModificar.value === "Modificar") {
+        // salgo y vuelvo al formulario anterior
+        window.location.replace("../Productos/Productos.html");  // subo 2 niveles y estoy en el raiz
+    } else {
+        // el boton esta en (btnModificar.value = "Guardar")
+        //Cancelo la edición sin guardar, deberia desacer el cambio
+        alert ("Se ha cancela la edición de Producto, vuelve al valor anterior");
+        renderProductoPosActual(arrayProductos);
+        btnModificar.innerHTML = "Modificar";
+        btnModificar.value = "Modificar";
+    }
 }
 
 

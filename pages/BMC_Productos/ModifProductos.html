@@ -20,16 +20,16 @@
                 <form class= "FormProd" method="POST">
                     <div class = "FormCuenta" action="">
                         <div class="container-input">
-                            <label for="id">Nombre:</label>
-                            <input id = "id" class="CamposEntrada" type="text" name="id" placeholder="Id de Producto." readonly = "readonly">
+                            <label for="id">Id.Producto:</label>
+                            <input id = "id" class="CamposEntrada" type="text" name="id" placeholder="Id de Producto." disabled= true >
                         </div>
                         <div class="container-input">
                             <label for="nomProd">Nombre:</label>
-                            <input id = "nomProd" class="CamposEntrada" type="text" name="nomProd" placeholder="Ingrese el Nombre Producto">
+                            <input id = "nomProd" class="CamposEntrada" type="text" name="nomProd" placeholder="Ingrese el Nombre Producto"disabled= true>
                         </div>
                         <div class="container-input">
                             <label for="price">Precio:  $</label>
-                            <input id= "price" class="CamposEntrada" type="number" name="price" placeholder="Ingrese el Precio" readonly= "readonly" >
+                            <input id= "price" class="CamposEntrada" type="number" name="price" placeholder="Ingrese el Precio" disabled= true>
                         </div>
                         <!-- <div class="container-input">
                             <label for="photo">Imagen Prod.:</label>
@@ -37,18 +37,18 @@
                         </div> -->
                         <div class="container-input">
                             <label for="photo">Imagen Prod.:</label>
-                            <input id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="Ingrese la Foto del Producto" readonly= "readonly">
+                            <input id= "photo" class="CamposEntrada" type="file" name="photo" placeholder="Ingrese la Foto del Producto" disabled= true>
                         </div>
                         <div class="container-input">
                             <label for="desc">Descripción:</label>
-                            <input id= "desc" class="CamposEntrada" type="text" name="desc" placeholder="Ingrese una Descripción Adicional" readonly= "readonly" >
+                            <input id= "desc" class="CamposEntrada" type="text" name="desc" placeholder="Ingrese una Descripción Adicional" disabled= true >
                         </div>
                         <!-- Botonera de Modificar y Cancelar -->
                         <div class="DivBotonera">
                             <div class= "BotonAlta" tabindex="-1">
                                 <!-- El href lo manejo por el javascript en el evento "onClick" del -->
                                 <a class ="AHref_submit" href="">
-                                    <button id="btnModificar" class="Submit" type="button" > <ins>M</ins>odificar</button> 
+                                    <button id="btnModificar" class="Submit" type="button" value = "Modificar"><ins>M</ins>odificar</button> 
                                 </a>
                             </div>
                             <div class= "BotonAlta" tabindex="-1">
