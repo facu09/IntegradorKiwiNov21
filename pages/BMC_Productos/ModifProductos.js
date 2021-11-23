@@ -24,7 +24,6 @@ let arrayProductos = [];   //arreglo de los productos que viene del Backend de J
 let liPosActualProd = 0;  //indica la posición actual del producto
 
 
-
 //hasta aca ya tenemos agarrados los input
 
 //Arranco poniendo el foco en email
@@ -33,6 +32,7 @@ inpNomProd.focus()
 // convertir una img en base64 ( string larguisimo), para enviarlo al back, y eso que se guarde en la db
 // Y asi, cuando nosotros pidamos la info de nuestro usuario, nos envie el base64 de la img y podamos
 // ponerlo en un <img src= para mostrarlo.
+// FALTA VER PERO ACÁ SOLO SE USARIA SI ACTUALIZA LA FOTO Y CARGA UNA NUEVA
 const toBase64 = () => {
     return new Promise((resolve, reject) => {
         const file =  inpPhoto.files[0];
@@ -92,8 +92,9 @@ const renderProductoPosActual = (arrayProductos) => {
         inpId.value = arrayProductos[liPosActualProd].id;
         inpNomProd.value = arrayProductos[liPosActualProd].name;
         inpPrice.value = arrayProductos[liPosActualProd].price;
-        //foto
-        // inpPhoto.value = arrayProductos[liPosActualProd].photo.files[0];
+        //aca va la foto que viene en base 64 del backend
+        // inpPhoto.value = arrayProductos[liPosActualProd].photo.files[0];  //NO VA ASI XQUE NO ES UN ARCHIVO
+        inpPhoto.setAttribute("src", arrayProductos[liPosActualProd].photo); 
         inpDesc.value = arrayProductos[liPosActualProd].description;
     } else {
         
@@ -157,8 +158,8 @@ const GuardoProducto = async (e) => {
                 const payload =  {
                     name: inpNomProd.value,                 
                     price: inpPrice.value,
-                    // photo: "acá iria la foto en base 64.",
-                    // photo: await toBase64(),
+                    // photo: "acá iria la foto que ya está en base 64.",
+                    photo: inpPhoto.value,
                     description: inpDesc.value,
                     //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
                 }
@@ -186,6 +187,7 @@ const GuardoProducto = async (e) => {
                     // Actulizo el Arreglo con el registro reción modificado;
                     arrayProductos[liPosActualProd].name = inpNomProd.value;
                     arrayProductos[liPosActualProd].price = inpPrice.value;
+                    arrayProductos[liPosActualPord].phot = inpPhoto.value;
                     arrayProductos[liPosActualProd].description = inpDesc.value;
                      //Si guardo bien el update --> cambio el botón a Modificar y lockeo el registro
                     btnModificar.innerHTML = "Modificar";
@@ -193,6 +195,13 @@ const GuardoProducto = async (e) => {
                      // inpDesc.price. ("readonly","false");
                     inpNomProd.disabled = true;   inpPrice.disabled = true;   inpPhoto.disabled = true
                     inpPhoto.disabled = true;     inpDesc.disabled = true;
+                    // otra forma sería a probar
+                    //document.getElementById('nomProd').readOnly = true;o false 
+                    //document.getElementById('nomProd').readOnly = false; pisas el atributo del html y se reemplaza por el del js
+                    //la otra que es mejor creo, es llamar al input como lo hiciste, y poner en el js 
+                    //nomProd.removeAttribute("readonly");
+                    //inpNomProd.attributes() //hay que probar si esto lo agregan
+                    
                     
                     return true
                 } else {

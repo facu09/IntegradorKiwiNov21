@@ -67,7 +67,11 @@ try {
         renderProductos(arrayProductos);
         }
     } catch( error ) {
-        alert(error);
+        alert("Error devuelto por el 'getProductos': " + error);
+        if (error = "TypeError: Cannot read properties of undefined (reading 'data')") {
+            alert ("Seguramente el Token ha expirado o no esta funcionando el BackEnd. \n Pruebe Loguearse nuevamente!")
+            window.location.replace("../Login/login.html")
+        }
     }
 }
 

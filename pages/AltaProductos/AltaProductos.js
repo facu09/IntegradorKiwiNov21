@@ -1,7 +1,7 @@
 //Definicioes y vinculos a elementos del DOM
 const inpNomProd = document.getElementById('nomProd');
 const inpPrice = document.getElementById('price');
-const inpPhoto = document.getElementById('photo');
+const inpPhoto = document.getElementById('photo');   //esto es un arreglo  .files[0] para indicar el primero
 const inpDesc = document.getElementById('desc');
 const btnAlta = document.getElementById('btnAlta');
 const btnCancelar = document.getElementById('btnCancelar');
@@ -18,6 +18,7 @@ inpNomProd.focus()
 // convertir una img en base64 ( string larguisimo), para enviarlo al back, y eso que se guarde en la db
 // Y asi, cuando nosotros pidamos la info de nuestro usuario, nos envie el base64 de la img y podamos
 // ponerlo en un <img src= para mostrarlo.
+//FALTA recibir el file como parametro el inpPhoto
 const toBase64 = () => {
     return new Promise((resolve, reject) => {
         const file =  inpPhoto.files[0];
@@ -49,11 +50,11 @@ const pasaValidacionesAlta = () => {
         inpPrice.focus()
         return false
     } 
-    // if (!inpPhoto.value) {
-    //     alert ("¡Debe ingresar el Apellido del Usuario! ");
-    //     inpPhoto.focus()
-    //     return false
-    // } 
+    if (!inpPhoto.value) {
+        alert ("¡Debe ingresar la Foto del Producto! ");
+        inpPhoto.focus()
+        return false
+    } 
     if (!inpDesc.value) {
         alert ("¡Debe ingresar la Edad del Usuario! ");
         inpDesc.focus()
@@ -81,8 +82,8 @@ const createProduct = async (e) => {
         const payload =  {
             name: inpNomProd.value,                 
             price: inpPrice.value,
-            // photo: "acá iria la foto en base 64.",
-            photo: await toBase64(),
+            // photo: "acá hay que poner la foto ya en base 64.",
+            photo: await toBase64(),   //FALTA PASARLE COMO PARAMETRO el inpPhoto al toBase64
             description: inpDesc.value,
             //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
             }

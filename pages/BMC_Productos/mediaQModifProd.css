@@ -11,6 +11,13 @@
     .CntNuevaCuenta p{
         font-size:2.5em;
     }
+    .CamposEntradaImgen {
+        width: 160px;
+        height: 160px;
+    }
+    .container-input label{
+        font-size: 1.2em
+      }
 }
 
 /* para Tablets Ipads  van de 455 a 768px*/
@@ -30,9 +37,15 @@
     }
     /* para el espacioado de los campos*/
     .container-input {
-        margin: 7% 0px;
+        margin: 3% 0px;
     }    
-    
+    .container-input label{
+        font-size: 1em
+      }
+    .CamposEntradaImgen {
+        width: 140px;
+        height: 140px;
+    }
 }
 
 /* Para moviles */
@@ -52,9 +65,16 @@
     }
     /* para el espacioado de los campos*/
     .container-input {
-        margin: 7% 0px;
+        margin: 3% 0px;
     }    
+    .container-input label{
+      font-size: 0.87em
+    }
     .submit{
       font-size: 1.26em;     
+    }
+    .CamposEntradaImgen {
+        width: 100px;
+        height: 100px;
     }
  }
