@@ -3,7 +3,8 @@
 //Definicioes y vinculos a elementos del DOM
 const inpId = document.getElementById('id');
 const inpNomProd = document.getElementById('nomProd');
-var inpPrice = document.getElementById('price');
+const inpPrice = document.getElementById('price');
+const imgPhoto = document.getElementById('photoImg');
 const inpPhoto = document.getElementById('photo');
 const inpDesc = document.getElementById('desc');
 const btnModificar = document.getElementById('btnModificar');
@@ -82,7 +83,8 @@ LimpiaForm = () => {
     inpId.value = "";
     inpNomProd.value = "";
     inpPrice.value = "";
-    inpPhoto.value = "";
+    imgPhoto.setAttribute("src", "");
+    inpPhoto.value = "";  //el archivo
     inpDesc.value = "";
     inpNomProd.focus();
 }
@@ -94,10 +96,16 @@ const renderProductoPosActual = (arrayProductos) => {
         inpPrice.value = arrayProductos[liPosActualProd].price;
         //aca va la foto que viene en base 64 del backend
         // inpPhoto.value = arrayProductos[liPosActualProd].photo.files[0];  //NO VA ASI XQUE NO ES UN ARCHIVO
-        inpPhoto.setAttribute("src", arrayProductos[liPosActualProd].photo); 
+        // en el arreglo ya lo tengo = que del backend en base 64
+        imgPhoto.setAttribute("src", arrayProductos[liPosActualProd].photo); 
         inpDesc.value = arrayProductos[liPosActualProd].description;
-    } else {
         
+        //    Aprendo a recuperar el base 64 de la etiqueta <img src="">
+        //    alert ("imgPhoto con getAttribute: " + imgPhoto.getAttribute("src"));
+        //    console.log (imgPhoto.getAttribute("src"));
+
+    } else {
+        //sino hay arreglo --> no hago nada
     }
 }
 
@@ -143,6 +151,7 @@ try {
 }
 
 const GuardoProducto = async (e) => {
+    let fotoBase64 = "" ;  //defino la foto base 64
     try {
            //      alert("Entro al GuardoProducto");
         //Sino tiene token
@@ -154,12 +163,34 @@ const GuardoProducto = async (e) => {
         } else {
             //Si tiene token --> Guardo
             if (pasaValidacionesAlta()) {
-                 //      alert("Entro al update del backend de juli");
-                const payload =  {
+                //      alert("Entro al update del backend de juli");
+                
+                //Si cambio el archivo, xque quiere cambiar la imagen 
+                if (inpPhoto.value) {
+                    //convierto el file a base 64
+                    alert ("Entro al if de si tiene archivo de foto");
+                    fotoBase64 = await toBase64();
+                } else {
+                    // Sino tiene archivo voy a guardar el que ya tiene
+                    alert("Entro al else de que no tiene archivo, " + arrayProductos[liPosActualProd].photo);
+                    // sigo guardando el que ya esta en el arreglo que es base 64
+                    if (arrayProductos[liPosActualProd].photo = undefined) {
+                        alert("Entro al undefined");
+                        fotoBase64 =  arrayProductos[liPosActualProd].photo ;
+                    } else { 
+                        alert ("entro al else del undefined")
+                        fotoBase64 =  "aca iria la foto que no esta"
+                    }
+
+                }
+
+                 const payload =  {
                     name: inpNomProd.value,                 
                     price: inpPrice.value,
                     // photo: "acá iria la foto que ya está en base 64.",
-                    photo: inpPhoto.value,
+                    // photo: inpPhoto.value,
+                    // FALTA VER COMO ACTUALIZO LA FOTO, seria tomarla del archivo y guardarla en img
+                    photo: fotoBase64,
                     description: inpDesc.value,
                     //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
                 }
@@ -187,7 +218,7 @@ const GuardoProducto = async (e) => {
                     // Actulizo el Arreglo con el registro reción modificado;
                     arrayProductos[liPosActualProd].name = inpNomProd.value;
                     arrayProductos[liPosActualProd].price = inpPrice.value;
-                    arrayProductos[liPosActualPord].phot = inpPhoto.value;
+                    arrayProductos[liPosActualPord].photo = fotoBase64;  //va la foto en base 64
                     arrayProductos[liPosActualProd].description = inpDesc.value;
                      //Si guardo bien el update --> cambio el botón a Modificar y lockeo el registro
                     btnModificar.innerHTML = "Modificar";
@@ -202,7 +233,6 @@ const GuardoProducto = async (e) => {
                     //nomProd.removeAttribute("readonly");
                     //inpNomProd.attributes() //hay que probar si esto lo agregan
                     
-                    
                     return true
                 } else {
                     alert ("¡¡ Modificación del Producto NO REALIZADA para el Producto '" + inpNomProd.value + "' !!  \n\n Motivo: \n\n" + message);
@@ -213,7 +243,7 @@ const GuardoProducto = async (e) => {
                 }
             }}
         } catch( error ) {
-            alert(error);
+            alert("Error de la funcion 'GuardarProducto' " + error);
         }
 }
 
@@ -311,6 +341,8 @@ const onClickCancelar = (e) => {
         //Cancelo la edición sin guardar, deberia desacer el cambio
         alert ("Se ha cancela la edición de Producto, vuelve al valor anterior");
         renderProductoPosActual(arrayProductos);
+        inpNomProd.disabled = true;   inpPrice.disabled = true;   inpPhoto.disabled = true
+        inpPhoto.disabled = true;     inpDesc.disabled = true;
         btnModificar.innerHTML = "Modificar";
         btnModificar.value = "Modificar";
     }
