@@ -14,6 +14,8 @@ const btnAnterior = document.getElementById('btnAnterior');
 const btnSiguiente = document.getElementById('btnSiguiente');
 const btnUltimo = document.getElementById('btnUltimo');
 
+//Defino una constante que tiene adentro una image de "No imagen availabe"
+const imgBase64NoImg = "data:image/png;base64,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"
 
 const baseURL = 'https://back-sandbox.herokuapp.com/api';
 
@@ -34,9 +36,16 @@ inpNomProd.focus()
 // Y asi, cuando nosotros pidamos la info de nuestro usuario, nos envie el base64 de la img y podamos
 // ponerlo en un <img src= para mostrarlo.
 // FALTA VER PERO ACÁ SOLO SE USARIA SI ACTUALIZA LA FOTO Y CARGA UNA NUEVA
-const toBase64 = () => {
+const toBase64 = (inpFF) => {
     return new Promise((resolve, reject) => {
-        const file =  inpPhoto.files[0];
+            // alert ("voy a mostrar el file");
+            // alert (inpPhoto.files[0]);
+            // console.log (inpPhoto.files[0]);
+                    //  ahora lo recibo por parametro al input                
+                    //  const file =  inpPhoto.files[0];
+        // alert (inpFF.files[0])
+        console.log (inpFF)
+        const file = inpFF.files[0]
         const reader = new FileReader();
       
         reader.addEventListener("load", function () {
@@ -95,9 +104,20 @@ const renderProductoPosActual = (arrayProductos) => {
         inpNomProd.value = arrayProductos[liPosActualProd].name;
         inpPrice.value = arrayProductos[liPosActualProd].price;
         //aca va la foto que viene en base 64 del backend
-        // inpPhoto.value = arrayProductos[liPosActualProd].photo.files[0];  //NO VA ASI XQUE NO ES UN ARCHIVO
-        // en el arreglo ya lo tengo = que del backend en base 64
-        imgPhoto.setAttribute("src", arrayProductos[liPosActualProd].photo); 
+            // imgPhoto.value = arrayProductos[liPosActualProd].photo.files[0];  //NO VA ASI XQUE NO ES UN ARCHIVO
+            // en el arreglo ya lo tengo = que del backend en base 64
+        //Evaluo si tiene cargada una imagen valida (deberia venir en base 64 ya)
+        //Sino tiene cargada una imagen 64 valida
+            //|| !arrayProductos[liPosActualProd].photo.includes('data:image')
+        if (  arrayProductos[liPosActualProd].photo === undefined ||
+              !arrayProductos[liPosActualProd].photo.includes('data:image') ) {    
+            //guardo una imagen de "No imagen availabel" que tengo hardcodeada
+                //  alert("No tiene imagen previa y tampoco cargo un archivo, entro al if NoIncluye 'data:image' undefined");
+            imgPhoto.setAttribute("src", imgBase64NoImg); 
+        } else {
+            //Si tiene una imagen base 64 valida --> la muestro en la <img src="">
+            imgPhoto.setAttribute("src", arrayProductos[liPosActualProd].photo); 
+        }
         inpDesc.value = arrayProductos[liPosActualProd].description;
         
         //    Aprendo a recuperar el base 64 de la etiqueta <img src="">
@@ -168,36 +188,41 @@ const GuardoProducto = async (e) => {
                 //Si cambio el archivo, xque quiere cambiar la imagen 
                 if (inpPhoto.value) {
                     //convierto el file a base 64
-                    alert ("Entro al if de si tiene archivo de foto");
-                    fotoBase64 = await toBase64();
+                        //      alert ("Entro al if de si tiene archivo de foto");
+                        //      fotoBase64 = await toBase64();
+                        //      ahora la uso mandandole parametro
+                    fotoBase64 = await toBase64(inpPhoto);
+                        //      alert (fotoBase64)
                 } else {
-                    // Sino tiene archivo voy a guardar el que ya tiene
-                    alert("Entro al else de que no tiene archivo, " + arrayProductos[liPosActualProd].photo);
+                    // Sino tiene archivo voy a guardar el que ya tiene de antes, es decir no hago modificaciones
+                         alert("Entro al else de que no tiene archivo, " + arrayProductos[liPosActualProd].photo);
                     // sigo guardando el que ya esta en el arreglo que es base 64
-                    if (arrayProductos[liPosActualProd].photo = undefined) {
-                        alert("Entro al undefined");
-                        fotoBase64 =  arrayProductos[liPosActualProd].photo ;
+                    //Si no contiene una imagen base 64 la imagen del backend
+                    if (  !arrayProductos[liPosActualProd].photo.includes('data:image') ) {    
+                        //guardo una imagen de "No imagen"
+                            //  alert("No tiene imagen previa y tampoco cargo un archivo, entro al if NoIncluye 'data:image' undefined");
+                        fotoBase64 =  imgBase64NoImg  // guardo la imagen ya en base 64 de No Imagen que tengo como constante
+                        
                     } else { 
-                        alert ("entro al else del undefined")
-                        fotoBase64 =  "aca iria la foto que no esta"
+                        //Si ya tenía imagen la conservo
+                        //      alert ("entro al else del undefined: idPos: " + liPosActualProd + " " + arrayProductos[liPosActualProd].name + ",  " + arrayProductos[liPosActualProd].photo )
+                        console.log (arrayProductos[liPosActualProd].photo);
+                        fotoBase64 =  arrayProductos[liPosActualProd].photo ;
                     }
-
                 }
-
+                
+                //Genero el UPDATE del Proudcto
+                //Armo el payload a guardar
                  const payload =  {
                     name: inpNomProd.value,                 
                     price: inpPrice.value,
-                    // photo: "acá iria la foto que ya está en base 64.",
-                    // photo: inpPhoto.value,
-                    // FALTA VER COMO ACTUALIZO LA FOTO, seria tomarla del archivo y guardarla en img
                     photo: fotoBase64,
                     description: inpDesc.value,
-                    //la photo:  //aca tenemos la foto con todo el contenido, hay q trasformalo a base 64
                 }
                 console.log("payload: ", payload);
                 //  alert (payload);
 
-                //Voy a Dar de Alta al BackEnd 1 Usuario nuevo
+                //Voy a hacer el UPDATE al BackEnd 1 Producto 
                 const response = await fetch(baseURL + '/products/' + inpId.value , {
                     method:'PUT',
                     headers: {
@@ -214,19 +239,28 @@ const GuardoProducto = async (e) => {
                 //      alert ("Message retornado del BackEnd despues del alta: " + message + ".");
     
                 if (message === "Successfully updated") {
-                    alert ("¡¡ Modificación del Producto '" + inpNomProd.value + "' realizado con ÉXITO !!" );
-                    // Actulizo el Arreglo con el registro reción modificado;
+                    alert ("¡¡ Modificación del Producto '" + inpNomProd.value + "' realizado con ÉXITO !!");
+                    // Actulizo el Arreglo con el registro reción modificado para que cuando navega muestre el registro bien, ya modificado
                     arrayProductos[liPosActualProd].name = inpNomProd.value;
                     arrayProductos[liPosActualProd].price = inpPrice.value;
-                    arrayProductos[liPosActualPord].photo = fotoBase64;  //va la foto en base 64
+                    arrayProductos[liPosActualProd].photo = fotoBase64;  //va la foto en base 64
                     arrayProductos[liPosActualProd].description = inpDesc.value;
-                     //Si guardo bien el update --> cambio el botón a Modificar y lockeo el registro
+                    
+                    //por las dudas blanqueo el file para que no quede cagado ahi
+                    inpPhoto.value = "";
+
+                    //Vuelvo a renderizar el producto por si cambio la imagen
+                    renderProductoPosActual(arrayProductos);
+                    
+                    //Actualizo los botones de abajo -------------------------
+                    //Si guardo bien el update --> cambio el botón a Modificar y lockeo el registro
                     btnModificar.innerHTML = "Modificar";
                     btnModificar.value = "Modificar"
-                     // inpDesc.price. ("readonly","false");
+                    //Vuelvo a poner los inputs en disabled para protejer escritura
+                    // inpDesc.price. ("readonly","false");
                     inpNomProd.disabled = true;   inpPrice.disabled = true;   inpPhoto.disabled = true
                     inpPhoto.disabled = true;     inpDesc.disabled = true;
-                    // otra forma sería a probar
+                    //FALTA PROBAR  otra forma sería a probar
                     //document.getElementById('nomProd').readOnly = true;o false 
                     //document.getElementById('nomProd').readOnly = false; pisas el atributo del html y se reemplaza por el del js
                     //la otra que es mejor creo, es llamar al input como lo hiciste, y poner en el js 
